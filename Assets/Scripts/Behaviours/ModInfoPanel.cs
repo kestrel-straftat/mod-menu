@@ -11,6 +11,7 @@ namespace ModMenu.Behaviours
         public TextMeshProUGUI nameText;
         public TextMeshProUGUI extraInfoText;
         public Image icon;
+        public ShowTooltip nameTooltip;
         
         private void Awake() {
             ClearInfo();
@@ -18,7 +19,11 @@ namespace ModMenu.Behaviours
         
         public void ShowInfoFor(Mod mod) {
             icon.enabled = true;
+            
             nameText.text = mod.info.name;
+            nameText.ForceMeshUpdate();
+            nameTooltip.textToShow = nameText.isTextTruncated ? mod.info.name : "";
+            
             descriptionText.text = mod.info.description;
             icon.sprite = mod.info.icon;
             extraInfoText.text = $"{mod.info.guid}\nv{mod.info.version}";
@@ -28,6 +33,7 @@ namespace ModMenu.Behaviours
             icon.enabled = false;
             descriptionText.text = "";
             nameText.text = "";
+            nameTooltip.textToShow = "";
             extraInfoText.text = "";
         }
     }

@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 6090980161537489091}
   - component: {fileID: 1709435955001021168}
   - component: {fileID: 6369119179254702409}
+  - component: {fileID: 1664578419295607454}
   m_Layer: 5
   m_Name: Name Text
   m_TagString: Untagged
@@ -681,6 +682,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1664578419295607454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017147949163731351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cc85ac57eb43199ec79d53b029ffc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 
 --- !u!1 &2063386122285045575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1180,6 @@ MonoBehaviour:
   categoryText: {fileID: 2266815579120155172}
   descriptionText: {fileID: 3067307124841386902}
   resetButton: {fileID: 3042534857210531827}
-  buttonSizeTween: {fileID: 7197815346534761671}
 --- !u!1 &4495994537003605636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,6 +2422,7 @@ MonoBehaviour:
   nameText: {fileID: 6369119179254702409}
   extraInfoText: {fileID: 5469293631597865422}
   icon: {fileID: 8846693174873021227}
+  nameTooltip: {fileID: 1664578419295607454}
 --- !u!1 &9222691716152164255
 GameObject:
   m_ObjectHideFlags: 0

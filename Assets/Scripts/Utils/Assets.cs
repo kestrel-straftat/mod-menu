@@ -38,26 +38,26 @@ namespace ModMenu.Utils
             var bundlePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "modmenu");
             m_bundle = AssetBundle.LoadFromFile(bundlePath);
             
-            DefaultModIcon = m_bundle.LoadAsset<Sprite>("NoIcon");
-            CategoryHeader = m_bundle.LoadAsset<GameObject>("CategoryHeader");
+            DefaultModIcon = Load<Sprite>("NoIcon");
+            CategoryHeader = Load<GameObject>("CategoryHeader");
             
-            IntegralSliderOption = m_bundle.LoadAsset<GameObject>("IntegralSliderOption");
-            FloatingSliderOption = m_bundle.LoadAsset<GameObject>("FloatingSliderOption");
-            IntegralInputFieldOption = m_bundle.LoadAsset<GameObject>("IntegralInputFieldOption");
-            FloatingInputFieldOption = m_bundle.LoadAsset<GameObject>("FloatingInputFieldOption");
+            IntegralSliderOption = Load<GameObject>("IntegralSliderOption");
+            FloatingSliderOption = Load<GameObject>("FloatingSliderOption");
+            IntegralInputFieldOption = Load<GameObject>("IntegralInputFieldOption");
+            FloatingInputFieldOption = Load<GameObject>("FloatingInputFieldOption");
             
-            BoolCheckboxOption = m_bundle.LoadAsset<GameObject>("BoolCheckboxOption");
-            StringInputFieldOption = m_bundle.LoadAsset<GameObject>("StringInputFieldOption");
-            EnumDropdownOption = m_bundle.LoadAsset<GameObject>("EnumDropdownOption");
-            KeyCodeOption = m_bundle.LoadAsset<GameObject>("KeyCodeOption");
-            KeyboardShortcutOption = m_bundle.LoadAsset<GameObject>("KeyboardShortcutOption");
-            AcceptableListDropdownOption = m_bundle.LoadAsset<GameObject>("AcceptableListDropdownOption");
+            BoolCheckboxOption = Load<GameObject>("BoolCheckboxOption");
+            StringInputFieldOption = Load<GameObject>("StringInputFieldOption");
+            EnumDropdownOption = Load<GameObject>("EnumDropdownOption");
+            KeyCodeOption = Load<GameObject>("KeyCodeOption");
+            KeyboardShortcutOption = Load<GameObject>("KeyboardShortcutOption");
+            AcceptableListDropdownOption = Load<GameObject>("AcceptableListDropdownOption");
             
-            Vector2Option = m_bundle.LoadAsset<GameObject>("Vector2Option");
-            Vector3Option = m_bundle.LoadAsset<GameObject>("Vector3Option");
-            Vector4Option = m_bundle.LoadAsset<GameObject>("Vector4Option");
-            QuaternionOption = m_bundle.LoadAsset<GameObject>("QuaternionOption");
-            ColorOption = m_bundle.LoadAsset<GameObject>("ColorOption");
+            Vector2Option = Load<GameObject>("Vector2Option");
+            Vector3Option = Load<GameObject>("Vector3Option");
+            Vector4Option = Load<GameObject>("Vector4Option");
+            QuaternionOption = Load<GameObject>("QuaternionOption");
+            ColorOption = Load<GameObject>("ColorOption");
             
             Plugin.Logger.LogInfo("Assets loaded!");
         }
