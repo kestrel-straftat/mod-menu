@@ -20,8 +20,6 @@ namespace ModMenu
                     guid = pi.Metadata.GUID,
                     name = pi.Metadata.Name,
                     version = pi.Metadata.Version.ToString(),
-                    description = "No description found.",
-                    icon = Assets.DefaultModIcon
                 };
                 modsToAdd.Add(new Mod(info));
             }

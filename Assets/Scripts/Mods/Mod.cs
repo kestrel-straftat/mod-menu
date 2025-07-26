@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using BepInEx.Bootstrap;
 using ModMenu.Options;
+using ModMenu.Utils;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -55,33 +56,42 @@ namespace ModMenu.Mods
                 return;
             
             var iconPath = Directory.EnumerateFiles(searchDir, "icon.png", SearchOption.AllDirectories).FirstOrDefault();
-            if (!string.IsNullOrEmpty(iconPath)) {
-                LoadIcon(iconPath);
+            if (string.IsNullOrEmpty(iconPath) || !TryLoadIcon(iconPath)) {
+                info.icon = Assets.DefaultModIcon;
             }
 
             var manifestPath = Directory.EnumerateFiles(searchDir, "manifest.json", SearchOption.AllDirectories).FirstOrDefault();
-            if (!string.IsNullOrEmpty(iconPath)) {
-                LoadManifest(manifestPath);
+            if (string.IsNullOrEmpty(iconPath) || !TryLoadManifest(manifestPath)) {
+                info.description = "No description found.";
             }
         }
 
-        private void LoadIcon(string path) {
+        private bool TryLoadIcon(string path) {
             var tex = new Texture2D(256, 256);
-            if (!tex.LoadImage(File.ReadAllBytes(path))) return;
+            if (!tex.LoadImage(File.ReadAllBytes(path))) return false;
             
             info.icon = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100);
             HasAdvancedMetadata = true;
+            return true;
         }
 
-        private void LoadManifest(string path) {
-            var manifest = JsonConvert.DeserializeObject<ThunderstoreManifest>(File.ReadAllText(path));
-
-            info.description = manifest.Description;
+        private bool TryLoadManifest(string path) {
+            try {
+                var manifest = JsonConvert.DeserializeObject<ThunderstoreManifest>(File.ReadAllText(path));
+                info.description = manifest.Description;
             
-            // probably better than the name from the mod attribute
-            // (will fall back to other name if manifest is not available)
-            info.name = manifest.Name.Replace('_', ' ');
-            HasAdvancedMetadata = true;
+                // probably better than the name from the mod attribute
+                // (will fall back to other name if manifest is not available)
+                info.name = manifest.Name.Replace('_', ' ');
+                HasAdvancedMetadata = true;
+            }
+            catch (JsonException e) {
+                Plugin.Logger.LogWarning($"Error trying to load manifest for \"{info.name}\": {e.Message}");
+                return false;
+                
+            }
+
+            return true;
         }
     }
 }
