@@ -10,7 +10,6 @@ namespace ModMenu.Behaviours.OptionControllers
     // base class for shared functionality between KeyCode and KeyboardShortcut option controllers
     public abstract class KeybindOptionController : OptionController
     {
-        public Button button;
         public TextMeshProUGUI buttonText;
         
         protected bool rebinding;
