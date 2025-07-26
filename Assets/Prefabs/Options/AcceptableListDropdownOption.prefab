@@ -1573,7 +1573,7 @@ MonoBehaviour:
   m_Script: {fileID: -1388171122, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: {x: 0.975, y: 0.975, z: 0.975}
+  targetScale: {x: 0.95, y: 0.95, z: 0.95}
   tweenDuration: 0.4
   easeType: 24
   parentScale: 0

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using HarmonyLib;
+using ModMenu.Behaviours.OptionControllers;
 using ModMenu.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,5 +43,12 @@ namespace ModMenu.Patches
                 graphTab.SetActive(false);
             });
         }
+
+        public static readonly HashSet<KeybindOptionController> currentlyRebindingContollers = new();
+
+        // override menu input callback if any keycode/keyboardshortcut options are rebinding
+        [HarmonyPatch("Menu")]
+        [HarmonyPrefix]
+        public static bool DoNotOpenIfRebinding() => currentlyRebindingContollers.Count == 0;
     }
 }
