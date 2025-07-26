@@ -20,6 +20,7 @@ namespace ModMenu.Patches
             var audioTab = ___optionsMenu.transform.Find("AudioTab").gameObject;
             var graphTab = ___optionsMenu.transform.Find("GraphTab").gameObject;
             var modsTab = Object.Instantiate(Assets.Load<GameObject>("ModMenu"), ___optionsMenu.transform);
+            modsTab.name = "ModsTab";
             modsTab.SetActive(false);
             
             var tabBar = ___optionsMenu.transform.Find("Tabsbutton");

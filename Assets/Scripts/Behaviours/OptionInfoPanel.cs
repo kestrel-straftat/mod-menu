@@ -33,9 +33,9 @@ namespace ModMenu.Behaviours
             descriptionText.text = option.Description;
 
             string categoryName = option.Section;
-            string type = option.BaseEntry.SettingType.Name;
+            string typeName = option.BaseEntry.SettingType.Name;
 
-            categoryText.text = categoryName + " | " + type + " | Defaults to " + option.BaseEntry.DefaultValue;
+            categoryText.text = categoryName + " | " + typeName + " | Defaults to " + option.BaseEntry.DefaultValue;
 
             if (option.AcceptableValues is not null) {
                 categoryText.text += " | " + option.AcceptableValues.HumanizedString();

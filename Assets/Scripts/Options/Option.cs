@@ -1,5 +1,8 @@
 using System;
+using System.Reflection;
+using BepInEx;
 using BepInEx.Configuration;
+using HarmonyLib;
 using ModMenu.Extensions;
 using ModMenu.Utils;
 using UnityEngine;
@@ -25,11 +28,11 @@ namespace ModMenu.Options
         }
         
         public abstract GameObject InstantiateOptionObject(Transform parent);
-
+        
         public void ResetToDefault() {
             BoxedValue = BaseEntry.DefaultValue;
         }
-        
+
         // if statements !!!!!!!!!
         public static Option CreateForEntry(ConfigEntryBase entry) {
             var type = entry.SettingType;

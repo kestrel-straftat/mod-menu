@@ -25,6 +25,8 @@ namespace ModMenu.Behaviours
             // meaningless microoptimisations with kestrel !!
             m_noOptionsText = CreateHeader("No options found");
             m_noOptionsSadFace = CreateHeader(":c");
+            m_noOptionsText.name = "No options found header";
+            m_noOptionsSadFace.name = "No options found sad face";
             m_noOptionsSadFace.GetComponent<TextMeshProUGUI>().fontSize = 24;
             m_noOptionsText.SetActive(false);
             m_noOptionsSadFace.SetActive(false);
@@ -54,12 +56,15 @@ namespace ModMenu.Behaviours
                     string currentCategory = "";
                     foreach (var option in mod.config) {
                         if (option.Section != currentCategory) {
-                            cachedOptions.Add(CreateHeader(option.Section));
+                            var header = CreateHeader(option.Section);
+                            header.name = $"{mod.info.name}/{option.Section}";
+                            cachedOptions.Add(header);
                         }
 
                         currentCategory = option.Section;
 
                         var optionObject = option.InstantiateOptionObject(container.transform);
+                        optionObject.name = $"{mod.info.name}/{option.Section}/{option.Name}";
                         var controller = optionObject.GetComponent<OptionController>();
                         controller.SetOption(option);
                         controller.OnOptionHovered += () => {

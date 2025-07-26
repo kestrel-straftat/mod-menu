@@ -25,7 +25,7 @@ namespace ModMenu.Behaviours.OptionControllers
         protected override void OnSetOption() {
             base.OnSetOption();
             
-            var avObject = BaseOption.BaseEntry.Description.AcceptableValues;
+            var avObject = BaseOption.AcceptableValues;
             var avType = avObject.GetType();
             m_optionValues = ((IEnumerable)avType.GetProperty("AcceptableValues")!.GetValue(avObject)).Cast<object>().ToArray();
             

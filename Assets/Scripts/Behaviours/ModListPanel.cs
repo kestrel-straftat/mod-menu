@@ -24,6 +24,7 @@ namespace ModMenu.Behaviours
             
             foreach (var mod in ordered) {
                 var item = Instantiate(itemPrefab, container.transform).GetComponent<ModListItem>();
+                item.name = mod.info.name;
                 item.Mod = mod;
                 item.OnModSelected += SelectMod;
             }

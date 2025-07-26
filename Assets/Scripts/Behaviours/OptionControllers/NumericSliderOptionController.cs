@@ -40,7 +40,7 @@ namespace ModMenu.Behaviours.OptionControllers
             m_optionType = BaseOption.BaseEntry.SettingType;
             m_isIntegralType = m_optionType.IsIntegral();
 
-            var range = BaseOption.BaseEntry.Description.AcceptableValues;
+            var range = BaseOption.AcceptableValues;
             var valueRangeType = range.GetType();
             
             slider.minValue = Convert.ToSingle(valueRangeType.GetProperty("MinValue")!.GetValue(range));
