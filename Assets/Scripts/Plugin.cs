@@ -14,7 +14,7 @@ namespace ModMenu
     {
         public const string guid = "kestrel.straftat.modmenu";
         public const string name = "ModMenu";
-        public const string version = "0.0.1";
+        public const string version = "1.0.0";
     }
 
     [BepInPlugin(PluginInfo.guid, PluginInfo.name, PluginInfo.version)]
