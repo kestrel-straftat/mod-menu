@@ -61,7 +61,7 @@ namespace ModMenu.Mods
             }
 
             var manifestPath = Directory.EnumerateFiles(searchDir, "manifest.json", SearchOption.AllDirectories).FirstOrDefault();
-            if (string.IsNullOrEmpty(iconPath) || !TryLoadManifest(manifestPath)) {
+            if (string.IsNullOrEmpty(manifestPath) || !TryLoadManifest(manifestPath)) {
                 info.description = "No description found.";
             }
         }
