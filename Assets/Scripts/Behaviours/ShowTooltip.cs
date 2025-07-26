@@ -8,8 +8,7 @@ namespace ModMenu.Behaviours
         public string textToShow;
         
         public void OnPointerEnter(PointerEventData eventData) {
-            if (textToShow != "")
-                FloatingName.Instance.nameToShow = textToShow;
+            FloatingName.Instance.nameToShow = textToShow;
         }
         public void OnPointerExit(PointerEventData eventData) {
             FloatingName.Instance.nameToShow = "";
