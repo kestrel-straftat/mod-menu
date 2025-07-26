@@ -1,0 +1,1 @@
+These pipelines will only work if you have gale installed and have your steam launch arguments set up to launch the game modded through gale.
