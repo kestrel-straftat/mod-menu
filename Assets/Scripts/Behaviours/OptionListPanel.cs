@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using ModMenu.Behaviours.OptionControllers;
 using ModMenu.Mods;
-using ModMenu.Options;
 using ModMenu.Utils;
 using TMPro;
 using UnityEngine;

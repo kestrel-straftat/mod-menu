@@ -1,5 +1,4 @@
 using System;
-using ModMenu.Options;
 using ModMenu.Utils;
 using TMPro;
 using UnityEngine.UI;

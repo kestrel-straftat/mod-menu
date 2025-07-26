@@ -1,5 +1,3 @@
-using System;
-using BepInEx.Configuration;
 using ModMenu.Behaviours.OptionControllers;
 using ModMenu.Extensions;
 using ModMenu.Options;

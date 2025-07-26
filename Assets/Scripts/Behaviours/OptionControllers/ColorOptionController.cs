@@ -1,5 +1,3 @@
-using System.Xml.Schema;
-using DG.Tweening;
 using ModMenu.Options;
 using TMPro;
 using UnityEngine;
