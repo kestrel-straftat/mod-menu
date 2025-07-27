@@ -40,6 +40,9 @@ namespace ModMenu.Mods
         }
 
         private void LoadMetadata() {
+            info.icon = Assets.DefaultModIcon;
+            info.description = "No description found.";
+            
             if (pluginInfo is null) {
                 return;
             }
@@ -52,17 +55,18 @@ namespace ModMenu.Mods
                 parent = Directory.GetParent(searchDir);
             }
 
-            if (searchDir.EndsWith(".dll"))
+            if (searchDir.EndsWith(".dll")) {
                 return;
+            }
             
             var iconPath = Directory.EnumerateFiles(searchDir, "icon.png", SearchOption.AllDirectories).FirstOrDefault();
-            if (string.IsNullOrEmpty(iconPath) || !TryLoadIcon(iconPath)) {
-                info.icon = Assets.DefaultModIcon;
+            if (!string.IsNullOrEmpty(iconPath)) {
+                TryLoadIcon(iconPath);
             }
 
             var manifestPath = Directory.EnumerateFiles(searchDir, "manifest.json", SearchOption.AllDirectories).FirstOrDefault();
-            if (string.IsNullOrEmpty(manifestPath) || !TryLoadManifest(manifestPath)) {
-                info.description = "No description found.";
+            if (!string.IsNullOrEmpty(manifestPath)) {
+                TryLoadManifest(manifestPath);
             }
         }
 
