@@ -1,6 +1,5 @@
 using System;
 using BepInEx.Configuration;
-using ModMenu.Extensions;
 using ModMenu.Utils;
 using UnityEngine;
 

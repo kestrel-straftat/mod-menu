@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using BepInEx.Configuration;
 
-namespace ModMenu.Extensions
+namespace ModMenu.Utils
 {
     public static class AcceptableValueBaseExtensions
     {

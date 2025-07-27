@@ -1,6 +1,6 @@
 using ModMenu.Behaviours.OptionControllers;
-using ModMenu.Extensions;
 using ModMenu.Options;
+using ModMenu.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
