@@ -2,7 +2,9 @@
 
 This mod adds a mods tab to the settings menu, which allows you to configure your mods ingame.
 
-## Notes to mod developers
+<img src="https://files.catbox.moe/j5nqm8.png" width="720" alt="The mod menu interface">
+
+## Notes for mod developers
 
 All types usable in BepInEx 5.4.21 ConfigEntries are supported.
 
