@@ -6,7 +6,7 @@ namespace ModMenu.Options
 {
     public class QuaternionOption : ValueOption<Quaternion>
     {
-        public QuaternionOption(ConfigEntry<Quaternion> entry) : base(entry) { }
+        public QuaternionOption(ConfigEntryBase entry) : base(entry) { }
         public override GameObject InstantiateOptionObject(Transform parent) {
             return Object.Instantiate(Assets.QuaternionOption, parent);
         }

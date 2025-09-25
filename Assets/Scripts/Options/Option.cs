@@ -39,10 +39,10 @@ namespace ModMenu.Options
                 return new AcceptableListDropdownOption(entry);
             }
             if (type == typeof(bool)) {
-                return new BoolOption(entry as ConfigEntry<bool>);
+                return new BoolOption(entry);
             }
             if (type == typeof(string)) {
-                return new StringInputFieldOption(entry as ConfigEntry<string>);
+                return new StringInputFieldOption(entry);
             }
             
             // catch-all for numeric types
@@ -60,25 +60,25 @@ namespace ModMenu.Options
             }
             
             if (type == typeof(KeyCode)) {
-                return new KeyCodeOption(entry as ConfigEntry<KeyCode>);
+                return new KeyCodeOption(entry);
             }
             if (type == typeof(KeyboardShortcut)) {
-                return new KeyboardShortcutOption(entry as ConfigEntry<KeyboardShortcut>);
+                return new KeyboardShortcutOption(entry);
             }
             if (type == typeof(Vector2)) {
-                return new Vector2Option(entry as ConfigEntry<Vector2>);
+                return new Vector2Option(entry);
             }
             if (type == typeof(Vector3)) {
-                return new Vector3Option(entry as ConfigEntry<Vector3>);
+                return new Vector3Option(entry);
             }
             if (type == typeof(Vector4)) {
-                return new Vector4Option(entry as ConfigEntry<Vector4>);
+                return new Vector4Option(entry);
             }
             if (type == typeof(Quaternion)) {
-                return new QuaternionOption(entry as ConfigEntry<Quaternion>);
+                return new QuaternionOption(entry);
             }
             if (type == typeof(Color)) {
-                return new ColorOption(entry as ConfigEntry<Color>);
+                return new ColorOption(entry);
             }
             // enum dropdown is not suitable for flags enums
             if (type.IsEnum && !type.IsDefined(typeof(FlagsAttribute), false)) {
@@ -91,13 +91,11 @@ namespace ModMenu.Options
 
     public abstract class ValueOption<T> : Option
     {
-        protected ValueOption(ConfigEntry<T> entry) : base(entry) { }
+        protected ValueOption(ConfigEntryBase entry) : base(entry) { }
         
-        public ConfigEntry<T> Entry => BaseEntry as ConfigEntry<T>;
-
         public T Value {
-            get => Entry.Value;
-            set => Entry.Value = value;
+            get => (T) BaseEntry.BoxedValue;
+            set => BaseEntry.BoxedValue = value;
         }
     }
 }

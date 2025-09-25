@@ -6,7 +6,7 @@ namespace ModMenu.Options
 {
     public class StringInputFieldOption : ValueOption<string>
     {
-        public StringInputFieldOption(ConfigEntry<string> entry) : base(entry) { }
+        public StringInputFieldOption(ConfigEntryBase entry) : base(entry) { }
         
         public override GameObject InstantiateOptionObject(Transform parent) {
             return Object.Instantiate(Assets.StringInputFieldOption, parent);

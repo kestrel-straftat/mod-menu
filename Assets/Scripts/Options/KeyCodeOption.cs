@@ -6,7 +6,7 @@ namespace ModMenu.Options
 {
     public class KeyCodeOption : ValueOption<KeyCode>
     {
-        public KeyCodeOption(ConfigEntry<KeyCode> entry) : base(entry) { }
+        public KeyCodeOption(ConfigEntryBase entry) : base(entry) { }
         
         public override GameObject InstantiateOptionObject(Transform parent) {
             return Object.Instantiate(Assets.KeyCodeOption, parent);
