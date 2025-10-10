@@ -1,3 +1,7 @@
+### v1.0.3
+
+- Added a shake animation to options when setting them fails
+
 ### v1.0.2
 
 - Minor code refactoring
