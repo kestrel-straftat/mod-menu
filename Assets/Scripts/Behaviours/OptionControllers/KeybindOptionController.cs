@@ -53,8 +53,8 @@ namespace ModMenu.Behaviours.OptionControllers
             UpdateAppearance();
         }
         
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             UpdateAppearance();
         }
         

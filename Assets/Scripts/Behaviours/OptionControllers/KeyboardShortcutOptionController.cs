@@ -9,14 +9,14 @@ namespace ModMenu.Behaviours.OptionControllers
     {
         protected override void UpdateRebinding() {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                BaseOption.BoxedValue = KeyboardShortcut.Empty;
+                SetOptionValue(KeyboardShortcut.Empty);
                 StopRebinding();
                 return;
             }
             
             foreach (var key in keysToCheck) {
                 if (Input.GetKeyUp(key)) {
-                    BaseOption.BoxedValue = new KeyboardShortcut(key, keysToCheck.Where(Input.GetKey).ToArray());
+                    SetOptionValue(new KeyboardShortcut(key, keysToCheck.Where(Input.GetKey).ToArray()));
                     StopRebinding();
                     break;
                 }

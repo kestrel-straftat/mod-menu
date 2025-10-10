@@ -21,13 +21,13 @@ namespace ModMenu.Behaviours.OptionControllers
                 y = newY;
             }
             
-            Option.Value = new Vector2(x, y);
+            SetOptionValue(new Vector2(x, y));
             
             UpdateAppearance();
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             UpdateAppearance();
         }
 

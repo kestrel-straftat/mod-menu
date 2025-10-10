@@ -12,11 +12,11 @@ namespace ModMenu.Behaviours.OptionControllers
         private Type m_enumType;
         
         public void OnDropdownValueChanged(int index) {
-            BaseOption.BoxedValue = index;
+            SetOptionValue(index);
             UpdateAppearance();
         }
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             
             m_enumType = BaseOption.BaseEntry.SettingType;
             

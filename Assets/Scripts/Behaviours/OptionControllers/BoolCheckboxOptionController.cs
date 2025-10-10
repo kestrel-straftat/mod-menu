@@ -8,16 +8,16 @@ namespace ModMenu.Behaviours.OptionControllers
         public Toggle toggle;
 
         public void OnCheckboxValueChanged(bool value) {
-            Option.Value = value;
+            SetOptionValue(value);
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            toggle.isOn = Option.Value;
+            toggle.SetIsOnWithoutNotify(Option.Value);
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             UpdateAppearance();
         }
     }

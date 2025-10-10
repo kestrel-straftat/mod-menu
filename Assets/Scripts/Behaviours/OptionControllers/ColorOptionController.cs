@@ -11,13 +11,15 @@ namespace ModMenu.Behaviours.OptionControllers
         public Image preview;
         
         public void OnInputFieldEndEdit(string value) {
-            if (ColorUtility.TryParseHtmlString(value, out var color))
-                Option.Value = color;
+            if (ColorUtility.TryParseHtmlString(value, out var color)) {
+                SetOptionValue(color);
+            }
+
             UpdateAppearance();
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             UpdateAppearance();
         }
         

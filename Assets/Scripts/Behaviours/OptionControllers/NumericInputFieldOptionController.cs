@@ -14,7 +14,7 @@ namespace ModMenu.Behaviours.OptionControllers
         public void OnInputFieldEndEdit(string value) {
             try {
                 if (Convert.ChangeType(value, m_optionType) is { } converted) {
-                    BaseOption.BoxedValue = converted;
+                    SetOptionValue(converted);
                 }
             }
             catch (Exception e) when (e is OverflowException or FormatException or InvalidCastException) {
@@ -24,8 +24,8 @@ namespace ModMenu.Behaviours.OptionControllers
             UpdateAppearance();
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             m_optionType = BaseOption.BaseEntry.SettingType;
             m_isIntegralType = m_optionType.IsIntegral();
             

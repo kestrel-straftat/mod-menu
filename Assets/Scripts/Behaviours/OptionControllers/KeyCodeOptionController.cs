@@ -6,14 +6,14 @@ namespace ModMenu.Behaviours.OptionControllers
     {
         protected override void UpdateRebinding() {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                BaseOption.BoxedValue = KeyCode.None;
+                SetOptionValue(KeyCode.None);
                 StopRebinding();
                 return;
             }
             
             foreach (var key in keysToCheck) {
                 if (Input.GetKeyUp(key)) {
-                    BaseOption.BoxedValue = key;
+                    SetOptionValue(key);
                     StopRebinding();
                     break;
                 }

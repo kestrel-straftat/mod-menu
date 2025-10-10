@@ -8,12 +8,12 @@ namespace ModMenu.Behaviours.OptionControllers
         public TMP_InputField inputField;
         
         public void OnInputFieldEndEdit(string value) {
-            Option.Value = value;
+            SetOptionValue(value);
             UpdateAppearance();
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             UpdateAppearance();
         }
 

@@ -1,3 +1,6 @@
+using System;
+using System.Runtime.CompilerServices;
+using DG.Tweening;
 using ModMenu.Options;
 using TMPro;
 using UnityEngine;
@@ -10,17 +13,25 @@ namespace ModMenu.Behaviours.OptionControllers
         public TextMeshProUGUI nameText;
         public event OptionHoverHandler OnOptionHovered;
         public event OptionHoverHandler OnOptionUnhovered;
-        
-        protected Option BaseOption { get; set; }
+
+        private Option m_baseOption;
+        private Tweener m_errorShake; 
+
+        private void Awake() {
+            m_errorShake = DOTween.Shake(() => transform.localPosition, p => transform.localPosition = p, 0.2f, 15f * Vector3.right, 20).SetAutoKill(false).Pause();
+        }
+
+        public Option BaseOption {
+            get => m_baseOption;
+            set {
+                m_baseOption = value;
+                OnOptionAssigned();
+            }
+        }
 
         public delegate void OptionHoverHandler();
 
         public virtual void ResetToDefault() => BaseOption.ResetToDefault();
-        
-        public void SetOption(Option option) {
-            BaseOption = option;
-            OnSetOption();
-        }
         
         public void OnPointerEnter(PointerEventData eventData) {
             //PauseManager.Instance.PlayMenuClip(PauseManager.Instance.genericMenuClip);
@@ -30,9 +41,24 @@ namespace ModMenu.Behaviours.OptionControllers
             OnOptionUnhovered?.Invoke();
         }
 
-        protected virtual void OnSetOption() {
+        protected void SetOptionValue(object value) {
+            try {
+                BaseOption.BoxedValue = value;
+            }
+            catch (Exception e) {
+                m_errorShake?.Restart();
+                UpdateAppearance();
+                // InvalidOperationException comes from synced config entries and can be safely ignored
+                if (e is not InvalidOperationException) {
+                    throw;
+                }
+            }
+        }
+        
+        protected virtual void OnOptionAssigned() {
             nameText.text = BaseOption.Name;
         }
+        
         public abstract void UpdateAppearance();
     }
 

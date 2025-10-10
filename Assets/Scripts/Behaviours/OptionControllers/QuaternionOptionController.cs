@@ -33,13 +33,13 @@ namespace ModMenu.Behaviours.OptionControllers
                 w = newW;
             }
             
-            Option.Value = new Quaternion(x, y, z, w);
+            SetOptionValue(new Quaternion(x, y, z, w));
             
             UpdateAppearance();
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             UpdateAppearance();
         }
 

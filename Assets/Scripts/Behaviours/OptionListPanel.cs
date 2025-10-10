@@ -64,7 +64,7 @@ namespace ModMenu.Behaviours
                         var optionObject = option.InstantiateOptionObject(container.transform);
                         optionObject.name = $"{mod.info.name}/{option.Section}/{option.Name}";
                         var controller = optionObject.GetComponent<OptionController>();
-                        controller.SetOption(option);
+                        controller.BaseOption = option;
                         controller.OnOptionHovered += () => {
                             infoPanel.ShowInfoFor(option);
                             infoPanel.ShowResetButtonFor(controller);

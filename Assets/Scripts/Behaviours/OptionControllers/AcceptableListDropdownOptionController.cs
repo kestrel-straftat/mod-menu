@@ -13,7 +13,7 @@ namespace ModMenu.Behaviours.OptionControllers
         private object[] m_optionValues;
         
         public void OnDropdownValueChanged(int index) {
-            BaseOption.BoxedValue = m_optionValues[index];
+            SetOptionValue(m_optionValues[index]);
             UpdateAppearance();
         }
         
@@ -21,8 +21,8 @@ namespace ModMenu.Behaviours.OptionControllers
             dropdown.SetValueWithoutNotify(Array.IndexOf(m_optionValues, BaseOption.BoxedValue));
         }
 
-        protected override void OnSetOption() {
-            base.OnSetOption();
+        protected override void OnOptionAssigned() {
+            base.OnOptionAssigned();
             
             var avObject = BaseOption.AcceptableValues;
             var avType = avObject.GetType();
