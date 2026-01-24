@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class EnumDropdownOption : Option
+    internal class EnumDropdownOption : Option
     {
         public EnumDropdownOption(ConfigEntryBase entry) : base(entry) { }
         

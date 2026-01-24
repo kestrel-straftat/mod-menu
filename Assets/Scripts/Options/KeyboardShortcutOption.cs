@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class KeyboardShortcutOption : ValueOption<KeyboardShortcut>
+    internal class KeyboardShortcutOption : ValueOption<KeyboardShortcut>
     {
         public KeyboardShortcutOption(ConfigEntryBase entry) : base(entry) { }
         

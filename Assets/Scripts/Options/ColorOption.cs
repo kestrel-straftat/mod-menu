@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class ColorOption : ValueOption<Color>
+    internal class ColorOption : ValueOption<Color>
     {
         public ColorOption(ConfigEntryBase entry) : base(entry) { }
         public override GameObject InstantiateOptionObject(Transform parent) {

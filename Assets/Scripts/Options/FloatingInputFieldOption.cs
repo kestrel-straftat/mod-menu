@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class FloatingInputFieldOption : Option
+    internal class FloatingInputFieldOption : Option
     {
         public FloatingInputFieldOption(ConfigEntryBase entry) : base(entry) { }
         public override GameObject InstantiateOptionObject(Transform parent) {

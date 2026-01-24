@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class FloatingSliderOption : Option
+    internal class FloatingSliderOption : Option
     {
         public FloatingSliderOption(ConfigEntryBase entry) : base(entry) { }
         public override GameObject InstantiateOptionObject(Transform parent) {

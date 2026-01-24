@@ -5,7 +5,7 @@ using TMPro;
 namespace ModMenu.Behaviours.OptionControllers
 {
     // a general input field controller for numeric types
-    public class NumericInputFieldOptionController : OptionController
+    internal class NumericInputFieldOptionController : OptionController
     {
         public TMP_InputField inputField;
         private Type m_optionType;

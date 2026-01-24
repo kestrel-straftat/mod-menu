@@ -565,7 +565,8 @@ PlayerSettings:
     Windows Store Apps: STRAFTAT;THUNDERKIT_BEPINEXPACK
     XboxOne: STRAFTAT;THUNDERKIT_BEPINEXPACK
     tvOS: STRAFTAT;THUNDERKIT_BEPINEXPACK
-  additionalCompilerArguments: {}
+  additionalCompilerArguments:
+    Standalone: []
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

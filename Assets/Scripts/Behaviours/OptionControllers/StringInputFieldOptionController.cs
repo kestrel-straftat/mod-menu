@@ -3,7 +3,7 @@ using TMPro;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class StringInputFieldOptionController : ValueOptionController<StringInputFieldOption, string>
+    internal class StringInputFieldOptionController : ValueOptionController<StringInputFieldOption, string>
     {
         public TMP_InputField inputField;
         

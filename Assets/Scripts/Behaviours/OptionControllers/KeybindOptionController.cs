@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace ModMenu.Behaviours.OptionControllers
 {
     // base class for shared functionality between KeyCode and KeyboardShortcut option controllers
-    public abstract class KeybindOptionController : OptionController
+    internal abstract class KeybindOptionController : OptionController
     {
         public TextMeshProUGUI buttonText;
         

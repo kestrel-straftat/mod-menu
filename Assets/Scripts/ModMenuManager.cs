@@ -4,7 +4,7 @@ using ModMenu.Mods;
 
 namespace ModMenu
 {
-    public static class ModMenuManager
+    internal static class ModMenuManager
     {
         public static Mod[] mods;
 
@@ -24,7 +24,5 @@ namespace ModMenu
             
             mods = modsToAdd.ToArray();
         }
-        
-        // API goes here... eventually
     }
 }

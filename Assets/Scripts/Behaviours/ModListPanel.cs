@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours
 {
-    public class ModListPanel : MonoBehaviour
+    internal class ModListPanel : MonoBehaviour
     {
         public GameObject container;
         public GameObject itemPrefab;

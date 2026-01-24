@@ -6,7 +6,7 @@ using TMPro;
 namespace ModMenu.Behaviours.OptionControllers
 {
     // gross reflection: the class
-    public class AcceptableListDropdownOptionController : OptionController
+    internal class AcceptableListDropdownOptionController : OptionController
     {
         public TMP_Dropdown dropdown;
 

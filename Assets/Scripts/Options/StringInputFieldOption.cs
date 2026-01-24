@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class StringInputFieldOption : ValueOption<string>
+    internal class StringInputFieldOption : ValueOption<string>
     {
         public StringInputFieldOption(ConfigEntryBase entry) : base(entry) { }
         

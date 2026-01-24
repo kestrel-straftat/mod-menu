@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class ColorOptionController : ValueOptionController<ColorOption, Color>
+    internal class ColorOptionController : ValueOptionController<ColorOption, Color>
     {
         public TMP_InputField inputField;
         public Image preview;

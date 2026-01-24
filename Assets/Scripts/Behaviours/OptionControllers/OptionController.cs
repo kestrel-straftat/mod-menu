@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public abstract class OptionController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    internal abstract class OptionController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public TextMeshProUGUI nameText;
         public event OptionHoverHandler OnOptionHovered;
@@ -62,7 +62,7 @@ namespace ModMenu.Behaviours.OptionControllers
         public abstract void UpdateAppearance();
     }
 
-    public abstract class ValueOptionController<T, TValue> : OptionController where T : ValueOption<TValue>
+    internal abstract class ValueOptionController<T, TValue> : OptionController where T : ValueOption<TValue>
     {
         protected T Option => BaseOption as T;
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ModMenu.Mods
 {
-    public struct ModInfo
+    internal struct ModInfo
     {
         public string name;
         public string guid;

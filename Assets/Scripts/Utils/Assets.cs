@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Utils
 {
-    public static class Assets
+    internal static class Assets
     {
         private static AssetBundle m_bundle;
 
@@ -28,6 +28,8 @@ namespace ModMenu.Utils
         public static GameObject Vector4Option { get; private set; }
         public static GameObject QuaternionOption { get; private set; }
         public static GameObject ColorOption { get; private set; }
+        
+        public static GameObject TextDummy { get; private set; }
 
         internal static T Load<T>(string name) where T : Object {
             return m_bundle.LoadAsset<T>(name);
@@ -58,6 +60,8 @@ namespace ModMenu.Utils
             Vector4Option = Load<GameObject>("Vector4Option");
             QuaternionOption = Load<GameObject>("QuaternionOption");
             ColorOption = Load<GameObject>("ColorOption");
+            
+            TextDummy = Load<GameObject>("TextDummy");
             
             Plugin.Logger.LogInfo("Assets loaded!");
         }

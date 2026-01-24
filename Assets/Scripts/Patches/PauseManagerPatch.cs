@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace ModMenu.Patches
 {
     [HarmonyPatch(typeof(PauseManager))]
-    public static class PauseManagerPatch
+    internal static class PauseManagerPatch
     {
         [HarmonyPatch("Awake")]
         [HarmonyPostfix]

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class KeyCodeOption : ValueOption<KeyCode>
+    internal class KeyCodeOption : ValueOption<KeyCode>
     {
         public KeyCodeOption(ConfigEntryBase entry) : base(entry) { }
         

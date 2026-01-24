@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class QuaternionOption : ValueOption<Quaternion>
+    internal class QuaternionOption : ValueOption<Quaternion>
     {
         public QuaternionOption(ConfigEntryBase entry) : base(entry) { }
         public override GameObject InstantiateOptionObject(Transform parent) {

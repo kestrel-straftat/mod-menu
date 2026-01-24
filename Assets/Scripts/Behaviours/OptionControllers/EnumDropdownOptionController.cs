@@ -4,7 +4,7 @@ using TMPro;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class EnumDropdownOptionController : OptionController
+    internal class EnumDropdownOptionController : OptionController
     {
         public TMP_Dropdown dropdown;
         

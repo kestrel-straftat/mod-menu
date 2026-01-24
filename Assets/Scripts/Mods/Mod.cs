@@ -3,25 +3,32 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BepInEx.Bootstrap;
+using ModMenu.Api;
 using ModMenu.Options;
 using ModMenu.Utils;
 using Newtonsoft.Json;
 using UnityEngine;
 
+#nullable enable
 namespace ModMenu.Mods
 {
-    public class Mod
+    internal class Mod
     {
         public readonly List<Option> config = new();
         public ModInfo info;
         public readonly BepInEx.PluginInfo pluginInfo;
         public bool HasAnyConfigs => config.Count > 0;
         public bool HasAdvancedMetadata { get; private set; } = false;
+        public Action<OptionListContext>? customContentBuilder;
 
         public Mod(ModInfo info) {
             this.info = info;
             if (!Chainloader.PluginInfos.TryGetValue(info.guid, out pluginInfo))
                 return;
+
+            if (Api.ModMenuCustomisation.Builders.TryGetValue(info.guid, out var builder)) {
+                customContentBuilder = builder;
+            }
             
             LoadMetadata();
 
@@ -82,11 +89,11 @@ namespace ModMenu.Mods
         private bool TryLoadManifest(string path) {
             try {
                 var manifest = JsonConvert.DeserializeObject<ThunderstoreManifest>(File.ReadAllText(path));
-                info.description = manifest.Description;
+                info.description = manifest?.Description;
             
                 // probably better than the name from the mod attribute
                 // (will fall back to other name if manifest is not available)
-                info.name = manifest.Name.Replace('_', ' ');
+                info.name = manifest?.Name.Replace('_', ' ');
                 HasAdvancedMetadata = true;
             }
             catch (JsonException e) {
@@ -99,3 +106,4 @@ namespace ModMenu.Mods
         }
     }
 }
+#nullable restore

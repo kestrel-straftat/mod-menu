@@ -5,7 +5,7 @@ using UnityEngine.PlayerLoop;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class KeyboardShortcutOptionController : KeybindOptionController
+    internal class KeyboardShortcutOptionController : KeybindOptionController
     {
         protected override void UpdateRebinding() {
             if (Input.GetKeyDown(KeyCode.Escape)) {

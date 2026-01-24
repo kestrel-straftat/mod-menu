@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours
 {
-    public class ModMenu : MonoBehaviour
+    internal class ModMenu : MonoBehaviour
     {
         public ModListPanel modListPanel;
 

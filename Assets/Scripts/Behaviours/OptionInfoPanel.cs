@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace ModMenu.Behaviours
 {
-    public class OptionInfoPanel : MonoBehaviour
+    internal class OptionInfoPanel : MonoBehaviour
     {
         public TextMeshProUGUI nameText;
         public TextMeshProUGUI categoryText;

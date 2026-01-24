@@ -1,13 +1,14 @@
+using System;
 using System.Collections.Generic;
+using ModMenu.Api;
 using ModMenu.Behaviours.OptionControllers;
 using ModMenu.Mods;
-using ModMenu.Utils;
 using TMPro;
 using UnityEngine;
 
 namespace ModMenu.Behaviours
 {
-    public class OptionListPanel : MonoBehaviour
+    internal class OptionListPanel : MonoBehaviour
     {
         public GameObject container;
         public OptionInfoPanel infoPanel;
@@ -19,10 +20,11 @@ namespace ModMenu.Behaviours
         private GameObject m_noOptionsSadFace;
         
         private void Awake() {
+            var context = new OptionListContext(container.transform);
             // these only really need to be created once
             // meaningless microoptimisations with kestrel !!
-            m_noOptionsText = CreateHeader("No options found");
-            m_noOptionsSadFace = CreateHeader(":c");
+            m_noOptionsText = context.AppendHeader("No options found").gameObject;
+            m_noOptionsSadFace = context.AppendHeader(":c").gameObject;
             m_noOptionsText.name = "No options found header";
             m_noOptionsSadFace.name = "No options found sad face";
             m_noOptionsSadFace.GetComponent<TextMeshProUGUI>().fontSize = 24;
@@ -51,12 +53,14 @@ namespace ModMenu.Behaviours
                     m_noOptionsSadFace.SetActive(true);
                 }
                 else {
+                    var context = new OptionListContext(container.transform);
+                    
                     string currentCategory = "";
-                    foreach (var option in mod.config) {
+                    foreach (var option in mod.config) {;
                         if (option.Section != currentCategory) {
-                            var header = CreateHeader(option.Section);
+                            var header = context.AppendHeader(option.Section);
                             header.name = $"{mod.info.name}/{option.Section}";
-                            cachedOptions.Add(header);
+                            cachedOptions.Add(header.gameObject);
                         }
 
                         currentCategory = option.Section;
@@ -71,18 +75,25 @@ namespace ModMenu.Behaviours
                         };
                         cachedOptions.Add(optionObject);
                     }
+                    
+                    // refresh context and run user defined builder
+                    context = new OptionListContext(container.transform);
+
+                    try {
+                        mod.customContentBuilder?.Invoke(context);
+                    }
+                    catch (Exception e) {
+                        Plugin.Logger.LogError($"Error invoking custom content builder for {mod.info.guid}: {e}");
+                    }
+
+                    // add all the things the builder made to the cache
+                    cachedOptions.AddRange(context.GetNewChildren());
                 }
 
                 m_optionCache[m_currentEnabledGuid] = cachedOptions.ToArray();
             } 
         }
-
-        private GameObject CreateHeader(string text) {
-            var header = Instantiate(Assets.CategoryHeader, container.transform).GetComponent<CategoryHeader>();
-            header.Text = text;
-            return header.gameObject;
-        }
-
+        
         private void ClearList() {
             if (!m_optionCache.TryGetValue(m_currentEnabledGuid, out var optionObjects)) return;
             foreach (var obj in optionObjects) {

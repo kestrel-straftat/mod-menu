@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public abstract class Option
+    internal abstract class Option
     {
         protected Option(ConfigEntryBase entry) {
             BaseEntry = entry;
@@ -89,7 +89,7 @@ namespace ModMenu.Options
         }
     }
 
-    public abstract class ValueOption<T> : Option
+    internal abstract class ValueOption<T> : Option
     {
         protected ValueOption(ConfigEntryBase entry) : base(entry) { }
         

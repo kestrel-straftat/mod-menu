@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace ModMenu.Behaviours.OptionControllers
 {
     // a general slider controller for numeric types
-    public class NumericSliderOptionController : OptionController
+    internal class NumericSliderOptionController : OptionController
     {
         public Slider slider;
         public TMP_InputField inputField;

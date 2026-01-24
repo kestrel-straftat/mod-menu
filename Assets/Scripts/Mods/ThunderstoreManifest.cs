@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace ModMenu.Mods
 {
-    public class ThunderstoreManifest
+    internal class ThunderstoreManifest
     {
         [JsonProperty("name")] public string Name { get; set; }
         [JsonProperty("version_number")] public string Version { get; set; }

@@ -3,8 +3,10 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using ComputerysModdingUtilities;
 using HarmonyLib;
+using ModMenu.Api;
 using ModMenu.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 [assembly: StraftatMod(isVanillaCompatible: true)]
 
@@ -29,7 +31,16 @@ namespace ModMenu
             gameObject.hideFlags = HideFlags.HideAndDontSave;
             Instance = this;
             Logger = base.Logger;
-        
+            
+            ModMenuCustomisation.RegisterContentBuilder((OptionListContext c) => {
+                c.InsertHeader("Custom Section 1", 13);
+                c.InsertTextBox("This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.", 14)
+                    .GetComponent<LayoutElement>().preferredHeight = 128;
+                c.AppendHeader("Custom Section 2");
+                c.AppendTextBox("Some colored text! :3")
+                    .Color = new Color(0.77254903f, 0.5254902f, 1f);
+            });
+            
             Assets.Init();
             CreateExampleConfigs();
             new Harmony(PluginInfo.guid).PatchAll();

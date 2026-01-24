@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class BoolCheckboxOptionController : ValueOptionController<BoolOption, bool>
+    internal class BoolCheckboxOptionController : ValueOptionController<BoolOption, bool>
     {
         public Toggle toggle;
 

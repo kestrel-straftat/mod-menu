@@ -5,7 +5,7 @@ using BepInEx.Configuration;
 
 namespace ModMenu.Utils
 {
-    public static class AcceptableValueBaseExtensions
+    internal static class AcceptableValueBaseExtensions
     {
         public static string HumanizedString(this AcceptableValueBase avb) {
             var type = avb.GetType();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class Vector2OptionController : ValueOptionController<Vector2Option, Vector2>
+    internal class Vector2OptionController : ValueOptionController<Vector2Option, Vector2>
     {
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;

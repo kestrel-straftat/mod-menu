@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ModMenu.Behaviours
 {
-    public class ModListItem : MonoBehaviour
+    internal class ModListItem : MonoBehaviour
     {
         public Image icon;
         public TextMeshProUGUI nameText;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionControllers
 {
-    public class KeyCodeOptionController : KeybindOptionController
+    internal class KeyCodeOptionController : KeybindOptionController
     {
         protected override void UpdateRebinding() {
             if (Input.GetKeyDown(KeyCode.Escape)) {

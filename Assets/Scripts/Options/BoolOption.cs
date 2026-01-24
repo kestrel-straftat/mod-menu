@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ModMenu.Options
 {
-    public class BoolOption : ValueOption<bool>
+    internal class BoolOption : ValueOption<bool>
     {
         public BoolOption(ConfigEntryBase entry) : base(entry) { }
         

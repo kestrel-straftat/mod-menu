@@ -5,7 +5,7 @@ using Object = UnityEngine.Object;
 
 namespace ModMenu.Options
 {
-    public class IntegralInputFieldOption : Option
+    internal class IntegralInputFieldOption : Option
     {
         public IntegralInputFieldOption(ConfigEntryBase entry) : base(entry) { }
         public override GameObject InstantiateOptionObject(Transform parent) {

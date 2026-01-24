@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace ModMenu.Behaviours
 {
-    public class ShowTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    internal class ShowTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public string textToShow;
         
