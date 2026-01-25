@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ModMenu.Behaviours
+namespace ModMenu.Behaviours.Dummies
 {
     public class TextDummy : MonoBehaviour
     {

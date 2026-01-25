@@ -7,6 +7,7 @@ using ModMenu.Api;
 using ModMenu.Utils;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 [assembly: StraftatMod(isVanillaCompatible: true)]
 
@@ -33,10 +34,21 @@ namespace ModMenu
             Logger = base.Logger;
             
             ModMenuCustomisation.RegisterContentBuilder((OptionListContext c) => {
-                c.InsertHeader("Custom Section 1", 13);
-                c.InsertTextBox("This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.", 14)
+                c.InsertHeader(13, "Custom Section 1");
+                
+                c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.")
                     .GetComponent<LayoutElement>().preferredHeight = 128;
+                c.InsertButton(15, () => {
+                    PauseManager.Instance.WriteOfflineLog("Button pressed!");
+                }, buttonText: "A very interesting button");
+                c.InsertButton(16, () => {
+                    var pluginPath = BepInEx.Paths.PluginPath;
+                    PauseManager.Instance.WriteOfflineLog($"Plugins directory: {pluginPath}");
+                }, "Plugins Directory", "Show Path");
+                
+                
                 c.AppendHeader("Custom Section 2");
+                
                 c.AppendTextBox("Some colored text! :3")
                     .Color = new Color(0.77254903f, 0.5254902f, 1f);
             });

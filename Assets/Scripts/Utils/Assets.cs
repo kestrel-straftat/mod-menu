@@ -30,6 +30,7 @@ namespace ModMenu.Utils
         public static GameObject ColorOption { get; private set; }
         
         public static GameObject TextDummy { get; private set; }
+        public static GameObject ButtonDummy { get; private set; }
 
         internal static T Load<T>(string name) where T : Object {
             return m_bundle.LoadAsset<T>(name);
@@ -62,6 +63,7 @@ namespace ModMenu.Utils
             ColorOption = Load<GameObject>("ColorOption");
             
             TextDummy = Load<GameObject>("TextDummy");
+            ButtonDummy = Load<GameObject>("ButtonDummy");
             
             Plugin.Logger.LogInfo("Assets loaded!");
         }
