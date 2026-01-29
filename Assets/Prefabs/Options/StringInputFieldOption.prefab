@@ -141,8 +141,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512219186936391511}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.StringInputFieldValueController,
+      - m_Target: {fileID: 8230140944950282804}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.StringValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
   - component: {fileID: -4381975955094188733}
-  - component: {fileID: 512219186936391511}
+  - component: {fileID: 8230140944950282804}
   m_Layer: 5
   m_Name: StringInputFieldOption
   m_TagString: Untagged
@@ -419,7 +419,7 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
---- !u!114 &512219186936391511
+--- !u!114 &8230140944950282804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4542109912437542127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d0ff37e301460ca3ee996245ba01f5, type: 3}
+  m_Script: {fileID: 11500000, guid: b48ea93951744489a7d33f43265b6698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 168498274821437172}

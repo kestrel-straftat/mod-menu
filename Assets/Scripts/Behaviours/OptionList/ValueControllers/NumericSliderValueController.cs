@@ -10,6 +10,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
     {
         public Slider slider;
         public TMP_InputField inputField;
+        
         private bool m_isIntegralType;
 
         protected override void Setup() {
@@ -26,8 +27,9 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
 
         public void OnSliderValueChanged(float value) {
             if (Convert.ChangeType(value, ValueType) is { } converted) {
-                SetBoxedValue(converted);
+                BoxedSetter(converted);
             }
+            
             UpdateAppearance();
         }
 
@@ -35,7 +37,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public void OnInputFieldEndEdit(string value) {
             try {
                 if (Convert.ChangeType(value, ValueType) is { } converted) {
-                    SetBoxedValue(converted);
+                    BoxedSetter(converted);
                 }
             }
             catch (Exception e) when (e is OverflowException or FormatException or InvalidCastException) {
@@ -46,7 +48,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         public override void UpdateAppearance() {
-            var value = GetBoxedValue();
+            var value = BoxedGetter();
             slider.SetValueWithoutNotify(Convert.ToSingle(value));
             inputField.SetTextWithoutNotify(m_isIntegralType ? value.ToString() : $"{value:F}");
         }

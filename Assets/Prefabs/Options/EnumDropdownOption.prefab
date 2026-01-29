@@ -308,7 +308,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6447348728598047057}
+      - m_Target: {fileID: 8599701099328585894}
         m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.DropdownValueController,
           ModMenu
         m_MethodName: OnDropdownValueChanged
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
   - component: {fileID: -8305501972933375546}
-  - component: {fileID: 6447348728598047057}
+  - component: {fileID: 8599701099328585894}
   m_Layer: 5
   m_Name: EnumDropdownOption
   m_TagString: Untagged
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
---- !u!114 &6447348728598047057
+--- !u!114 &8599701099328585894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4542109912437542127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dad03a420b94e57af06b1b8e1b63273, type: 3}
+  m_Script: {fileID: 11500000, guid: e6407a1b3c184783bb28c3b78ea5bc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 168498274821437172}

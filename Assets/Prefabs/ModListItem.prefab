@@ -223,8 +223,8 @@ GameObject:
   - component: {fileID: 6658666492937576185}
   - component: {fileID: 7716919128871832021}
   - component: {fileID: 6321984872950797409}
-  - component: {fileID: 7484613918848412597}
   - component: {fileID: 1480857261315330106}
+  - component: {fileID: 8219430955742971369}
   m_Layer: 5
   m_Name: ModListItem
   m_TagString: Untagged
@@ -337,8 +337,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7484613918848412597}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.ModListItem, ModMenu
+      - m_Target: {fileID: 8219430955742971369}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.ModList.ModListItem, ModMenu
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -349,23 +349,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7484613918848412597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5464065538596953404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a468b04b74b4b548844103435318895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 3744949145937462261}
-  nameText: {fileID: 9090843715835237092}
-  versionText: {fileID: 6884771391183340622}
-  buttonSizeTween: {fileID: 0}
-  button: {fileID: 6321984872950797409}
 --- !u!114 &1480857261315330106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +378,21 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &8219430955742971369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464065538596953404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ce668d62c354b4b967c477ed08e31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 3744949145937462261}
+  nameText: {fileID: 9090843715835237092}
+  versionText: {fileID: 6884771391183340622}
 --- !u!1 &6705502027805036438
 GameObject:
   m_ObjectHideFlags: 0

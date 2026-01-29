@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3867783603585873418}
+      - m_Target: {fileID: 5650411039585587084}
         m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.NumericInputFieldValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
   - component: {fileID: -7031156852624656236}
-  - component: {fileID: 3867783603585873418}
+  - component: {fileID: 5650411039585587084}
   m_Layer: 5
   m_Name: FloatingInputFieldOption
   m_TagString: Untagged
@@ -419,7 +419,7 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
---- !u!114 &3867783603585873418
+--- !u!114 &5650411039585587084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4542109912437542127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be73e9e0f874b4c8d01abbe3ca2b51c, type: 3}
+  m_Script: {fileID: 11500000, guid: 558d66c70053459ea09f2668153557f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 168498274821437172}

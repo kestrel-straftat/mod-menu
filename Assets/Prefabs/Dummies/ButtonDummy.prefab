@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
   - component: {fileID: 2587980119325739900}
-  - component: {fileID: 208308157373678334}
+  - component: {fileID: 9022431275979150594}
   m_Layer: 5
   m_Name: ButtonDummy
   m_TagString: Untagged
@@ -435,7 +435,7 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
---- !u!114 &208308157373678334
+--- !u!114 &9022431275979150594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4542109912437542127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 328f717b900f40a3aedd576e8eba01c1, type: 3}
+  m_Script: {fileID: 11500000, guid: e65c5b59b26dd834ab56b7447101f142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 168498274821437172}

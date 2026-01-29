@@ -141,11 +141,11 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8598906586661462796}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.Vector2OptionController,
+      - m_Target: {fileID: 2559971554670925445}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.Vector2ValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -517,8 +517,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 8598906586661462796}
   - component: {fileID: -4446630511366733454}
+  - component: {fileID: 2559971554670925445}
   m_Layer: 5
   m_Name: Vector2Option
   m_TagString: Untagged
@@ -633,21 +633,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &8598906586661462796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f356f03ae02d4c2f9bd9dfd5549d0d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  xInputField: {fileID: 3277173477917438462}
-  yInputField: {fileID: 2102474307437775611}
 --- !u!114 &-4446630511366733454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +662,21 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &2559971554670925445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5263679614045dc40b9e9f38cb3eede3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  xInputField: {fileID: 3277173477917438462}
+  yInputField: {fileID: 2102474307437775611}
 --- !u!1 &4916598652329992112
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,11 +953,11 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8598906586661462796}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.Vector2OptionController,
+      - m_Target: {fileID: 2559971554670925445}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.Vector2ValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

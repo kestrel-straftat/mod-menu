@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5156639851772274004}
+      - m_Target: {fileID: 6235307534314033590}
         m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.KeybindValueController`1[[UnityEngine.KeyCode,
           UnityEngine
         m_MethodName: OnRebindButtonPressed
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
   - component: {fileID: 940687980708137371}
-  - component: {fileID: 5156639851772274004}
+  - component: {fileID: 6235307534314033590}
   m_Layer: 5
   m_Name: KeyCodeOption
   m_TagString: Untagged
@@ -478,7 +478,7 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
---- !u!114 &5156639851772274004
+--- !u!114 &6235307534314033590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -487,7 +487,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4542109912437542127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c2b89cd1fa431cb9eb226fecddbd38, type: 3}
+  m_Script: {fileID: 11500000, guid: 29e5355372244ca7b59f0997d40bb183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 168498274821437172}

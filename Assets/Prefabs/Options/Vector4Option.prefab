@@ -141,11 +141,11 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2618249170921896760}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.Vector4OptionController,
+      - m_Target: {fileID: 6068484746614622871}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.Vector4ValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -706,8 +706,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 2618249170921896760}
   - component: {fileID: 5901126168633193042}
+  - component: {fileID: 6068484746614622871}
   m_Layer: 5
   m_Name: Vector4Option
   m_TagString: Untagged
@@ -822,23 +822,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &2618249170921896760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41746f7aafd242609d6bb26dee9b652c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  xInputField: {fileID: 3277173477917438462}
-  yInputField: {fileID: 2102474307437775611}
-  zInputField: {fileID: 4295960262405492337}
-  wInputField: {fileID: 5773415872669790608}
 --- !u!114 &5901126168633193042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +851,23 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &6068484746614622871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcd735506f50784c93f57c266806412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  xInputField: {fileID: 3277173477917438462}
+  yInputField: {fileID: 2102474307437775611}
+  zInputField: {fileID: 4295960262405492337}
+  wInputField: {fileID: 5773415872669790608}
 --- !u!1 &4916598652329992112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,11 +1144,11 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2618249170921896760}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.Vector4OptionController,
+      - m_Target: {fileID: 6068484746614622871}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.Vector4ValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1354,11 +1354,11 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2618249170921896760}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.Vector4OptionController,
+      - m_Target: {fileID: 6068484746614622871}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.Vector4ValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2094,11 +2094,11 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2618249170921896760}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.Vector4OptionController,
+      - m_Target: {fileID: 6068484746614622871}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.Vector4ValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class Vector4ValueController : ValueController<Vector4>
+    internal class QuaternionValueController : ValueController<Quaternion>
     {
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;
@@ -33,7 +33,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
                 w = newW;
             }
             
-            Setter(new Vector4(x, y, z, w));
+            Setter(new Quaternion(x, y, z, w));
             
             UpdateAppearance();
         }

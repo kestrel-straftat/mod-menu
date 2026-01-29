@@ -1,19 +1,21 @@
+using System.Linq;
+using BepInEx.Configuration;
 using UnityEngine;
 
-namespace ModMenu.Behaviours.OptionControllers
+namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class KeyCodeOptionController : KeybindOptionController
+    public class KeyboardShortcutValueController : KeybindValueController<KeyboardShortcut>
     {
         protected override void UpdateRebinding() {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                SetOptionValue(KeyCode.None);
+                Setter(KeyboardShortcut.Empty);
                 StopRebinding();
                 return;
             }
-            
+
             foreach (var key in keysToCheck) {
                 if (Input.GetKeyUp(key)) {
-                    SetOptionValue(key);
+                    Setter(new KeyboardShortcut(key, keysToCheck.Where(Input.GetKey).ToArray()));
                     StopRebinding();
                     break;
                 }

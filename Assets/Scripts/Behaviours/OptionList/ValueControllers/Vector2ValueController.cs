@@ -8,8 +8,8 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;
         
-        public void OnInputFieldEndEdit(string value) {
-            var originalValue = GetValue();
+        public void OnInputFieldEndEdit() {
+            var originalValue = Getter();
             float x = originalValue.x;
             float y = originalValue.y;
 
@@ -21,13 +21,13 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
                 y = newY;
             }
             
-            SetValue(new Vector2(x, y));
+            Setter(new Vector2(x, y));
             
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            var value = GetValue();
+            var value = Getter();
             xInputField.SetTextWithoutNotify(value.x.ToString("F"));
             yInputField.SetTextWithoutNotify(value.y.ToString("F"));
         }
