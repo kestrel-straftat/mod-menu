@@ -838,7 +838,7 @@ MonoBehaviour:
   tweenDuration: 0.4
   easeType: 24
   parentScale: 0
-  takeInitScale: 1
+  takeInitScale: 0
   closeWindow: 0
   biggerWhenSelected: 0
   biggerWithGamepadOnly: 0

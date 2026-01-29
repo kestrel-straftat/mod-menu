@@ -1045,7 +1045,7 @@ MonoBehaviour:
   tweenDuration: 0.4
   easeType: 24
   parentScale: 0
-  takeInitScale: 1
+  takeInitScale: 0
   closeWindow: 0
   biggerWhenSelected: 0
   biggerWithGamepadOnly: 0
@@ -1573,11 +1573,11 @@ MonoBehaviour:
   m_Script: {fileID: -1388171122, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: {x: 0.95, y: 0.95, z: 0.95}
-  tweenDuration: 0.4
-  easeType: 24
+  targetScale: {x: 1.1, y: 1.1, z: 1.1}
+  tweenDuration: 0
+  easeType: 0
   parentScale: 0
-  takeInitScale: 1
+  takeInitScale: 0
   closeWindow: 0
   biggerWhenSelected: 0
   biggerWithGamepadOnly: 0
