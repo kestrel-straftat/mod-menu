@@ -223,8 +223,8 @@ GameObject:
   - component: {fileID: 6658666492937576185}
   - component: {fileID: 7716919128871832021}
   - component: {fileID: 6321984872950797409}
-  - component: {fileID: 1480857261315330106}
   - component: {fileID: 8219430955742971369}
+  - component: {fileID: 2963115894033497405}
   m_Layer: 5
   m_Name: ModListItem
   m_TagString: Untagged
@@ -349,7 +349,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1480857261315330106
+--- !u!114 &8219430955742971369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464065538596953404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ce668d62c354b4b967c477ed08e31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 3744949145937462261}
+  nameText: {fileID: 9090843715835237092}
+  versionText: {fileID: 6884771391183340622}
+--- !u!114 &2963115894033497405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: -1388171122, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: {x: 1.05, y: 1.05, z: 1.05}
+  targetScale: {x: 1.1, y: 1.1, z: 1.1}
   tweenDuration: 0.4
   easeType: 24
   parentScale: 0
@@ -378,21 +393,6 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
---- !u!114 &8219430955742971369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5464065538596953404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ce668d62c354b4b967c477ed08e31b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 3744949145937462261}
-  nameText: {fileID: 9090843715835237092}
-  versionText: {fileID: 6884771391183340622}
 --- !u!1 &6705502027805036438
 GameObject:
   m_ObjectHideFlags: 0
