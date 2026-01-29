@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328f717b900f40a3aedd576e8eba01c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTextMeshProText: {fileID: 168498274821437172}
+  nameText: {fileID: 168498274821437172}
   buttonTextMeshProText: {fileID: 5334825378109586996}
   button: {fileID: 5126191543687816506}
 --- !u!1 &6579316956062570417

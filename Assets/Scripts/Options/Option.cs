@@ -23,7 +23,7 @@ namespace ModMenu.Options
             set => BaseEntry.BoxedValue = value;
         }
         
-        public abstract GameObject InstantiateOptionObject(Transform parent);
+        public abstract GameObject GetListItemPrefab();
         
         public void ResetToDefault() {
             BoxedValue = BaseEntry.DefaultValue;

@@ -1,19 +1,19 @@
-using ModMenu.Options;
 using TMPro;
 using UnityEngine;
 
-namespace ModMenu.Behaviours.OptionControllers
+namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class Vector3OptionController : ValueOptionController<Vector3Option, Vector3>
+    internal class Vector3ValueController : ValueController<Vector3>
     {
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;
         public TMP_InputField zInputField;
         
         public void OnInputFieldEndEdit(string value) {
-            float x = Option.Value.x;
-            float y = Option.Value.y;
-            float z = Option.Value.z;
+            var originalValue = GetValue();
+            float x = originalValue.x;
+            float y = originalValue.y;
+            float z = originalValue.z;
 
             if (float.TryParse(xInputField.text, out var newX)) {
                 x = newX;
@@ -27,20 +27,16 @@ namespace ModMenu.Behaviours.OptionControllers
                 z = newZ;
             }
             
-            SetOptionValue(new Vector3(x, y, z));
+            SetValue(new Vector3(x, y, z));
             
             UpdateAppearance();
         }
 
-        protected override void OnOptionAssigned() {
-            base.OnOptionAssigned();
-            UpdateAppearance();
-        }
-
         public override void UpdateAppearance() {
-            xInputField.SetTextWithoutNotify(Option.Value.x.ToString("F"));
-            yInputField.SetTextWithoutNotify(Option.Value.y.ToString("F"));
-            zInputField.SetTextWithoutNotify(Option.Value.z.ToString("F"));
+            var value = GetValue();
+            xInputField.SetTextWithoutNotify(value.x.ToString("F"));
+            yInputField.SetTextWithoutNotify(value.y.ToString("F"));
+            zInputField.SetTextWithoutNotify(value.z.ToString("F"));
         }
     }
 }

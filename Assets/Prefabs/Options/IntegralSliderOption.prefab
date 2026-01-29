@@ -141,8 +141,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1797314235941768923}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.NumericSliderOptionController,
+      - m_Target: {fileID: 2173534593320968799}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.NumericSliderValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -388,8 +388,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 1797314235941768923}
   - component: {fileID: -4218225507049577948}
+  - component: {fileID: 2173534593320968799}
   m_Layer: 5
   m_Name: IntegralSliderOption
   m_TagString: Untagged
@@ -504,21 +504,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1797314235941768923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11198faaa89f4d0c966a72604828cfa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  slider: {fileID: 4201937287298866759}
-  inputField: {fileID: 3277173477917438462}
 --- !u!114 &-4218225507049577948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +533,21 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &2173534593320968799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e50e0c8b834a63a1c692d8fcf62981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  slider: {fileID: 4201937287298866759}
+  inputField: {fileID: 3277173477917438462}
 --- !u!1 &4709113857154328465
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,8 +640,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1797314235941768923}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.NumericSliderOptionController,
+      - m_Target: {fileID: 2173534593320968799}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.NumericSliderValueController,
           ModMenu
         m_MethodName: OnSliderValueChanged
         m_Mode: 0

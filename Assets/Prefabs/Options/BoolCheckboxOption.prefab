@@ -89,9 +89,9 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 3747840713655435105}
   - component: {fileID: 1383558380719636975}
   - component: {fileID: 2587980119325739900}
+  - component: {fileID: 9159137458081888780}
   m_Layer: 5
   m_Name: BoolCheckboxOption
   m_TagString: Untagged
@@ -205,20 +205,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &3747840713655435105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad717c4a88f4dc8a8d07d2565ee50b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  toggle: {fileID: 1383558380719636975}
 --- !u!114 &1383558380719636975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,8 +252,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3747840713655435105}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.BoolCheckboxOptionController,
+      - m_Target: {fileID: 9159137458081888780}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.BoolCheckboxValueController,
           ModMenu
         m_MethodName: OnCheckboxValueChanged
         m_Mode: 0
@@ -309,6 +295,20 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &9159137458081888780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c1d7a3b1c442258a65d74ac95de429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  toggle: {fileID: 1383558380719636975}
 --- !u!1 &6579316956062570417
 GameObject:
   m_ObjectHideFlags: 0

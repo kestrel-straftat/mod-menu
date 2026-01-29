@@ -1,10 +1,9 @@
-using ModMenu.Options;
 using TMPro;
 using UnityEngine;
 
-namespace ModMenu.Behaviours.OptionControllers
+namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class Vector4OptionController : ValueOptionController<Vector4Option, Vector4>
+    internal class Vector4ValueController : ValueController<Vector4>
     {
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;
@@ -12,10 +11,11 @@ namespace ModMenu.Behaviours.OptionControllers
         public TMP_InputField wInputField;
         
         public void OnInputFieldEndEdit(string value) {
-            float x = Option.Value.x;
-            float y = Option.Value.y;
-            float z = Option.Value.z;
-            float w = Option.Value.w;
+            var originalValue = GetValue();
+            float x = originalValue.x;
+            float y = originalValue.y;
+            float z = originalValue.z;
+            float w = originalValue.w;
 
             if (float.TryParse(xInputField.text, out var newX)) {
                 x = newX;
@@ -33,21 +33,17 @@ namespace ModMenu.Behaviours.OptionControllers
                 w = newW;
             }
             
-            SetOptionValue(new Vector4(x, y, z, w));
+            SetValue(new Vector4(x, y, z, w));
             
             UpdateAppearance();
         }
 
-        protected override void OnOptionAssigned() {
-            base.OnOptionAssigned();
-            UpdateAppearance();
-        }
-
         public override void UpdateAppearance() {
-            xInputField.SetTextWithoutNotify(Option.Value.x.ToString("F"));
-            yInputField.SetTextWithoutNotify(Option.Value.y.ToString("F"));
-            zInputField.SetTextWithoutNotify(Option.Value.z.ToString("F"));
-            wInputField.SetTextWithoutNotify(Option.Value.w.ToString("F"));
+            var value = GetValue();
+            xInputField.SetTextWithoutNotify(value.x.ToString("F"));
+            yInputField.SetTextWithoutNotify(value.y.ToString("F"));
+            zInputField.SetTextWithoutNotify(value.z.ToString("F"));
+            wInputField.SetTextWithoutNotify(value.w.ToString("F"));
         }
     }
 }

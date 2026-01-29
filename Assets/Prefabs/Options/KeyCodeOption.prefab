@@ -124,9 +124,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7657479066757055839}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.KeyCodeOptionController,
-          ModMenu
+      - m_Target: {fileID: 5156639851772274004}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.KeybindValueController`1[[UnityEngine.KeyCode,
+          UnityEngine
         m_MethodName: OnRebindButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -334,8 +334,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 7657479066757055839}
   - component: {fileID: 940687980708137371}
+  - component: {fileID: 5156639851772274004}
   m_Layer: 5
   m_Name: KeyCodeOption
   m_TagString: Untagged
@@ -449,21 +449,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &7657479066757055839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5fc6669c9ff433385ac25c824854a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  button: {fileID: 7384516027540426507}
-  buttonText: {fileID: 3549413748626214469}
 --- !u!114 &940687980708137371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +478,20 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &5156639851772274004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c2b89cd1fa431cb9eb226fecddbd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  buttonText: {fileID: 3549413748626214469}
 --- !u!1 &6579316956062570417
 GameObject:
   m_ObjectHideFlags: 0

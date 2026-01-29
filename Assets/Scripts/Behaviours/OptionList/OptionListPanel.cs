@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using ModMenu.Api;
-using ModMenu.Behaviours.OptionControllers;
+using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Mods;
 using TMPro;
 using UnityEngine;
 
-namespace ModMenu.Behaviours
+namespace ModMenu.Behaviours.OptionList
 {
     internal class OptionListPanel : MonoBehaviour
     {
@@ -39,7 +39,7 @@ namespace ModMenu.Behaviours
             if (m_optionCache.TryGetValue(m_currentEnabledGuid, out var optionObjects)) {
                 foreach (var obj in optionObjects) {
                     obj.SetActive(true);
-                    obj.GetComponent<OptionController>()?.UpdateAppearance();
+                    obj.GetComponent<BoxedValueController>()?.UpdateAppearance();
                 }
             }
             else {
@@ -65,15 +65,9 @@ namespace ModMenu.Behaviours
 
                         currentCategory = option.Section;
 
-                        var optionObject = option.InstantiateOptionObject(container.transform);
-                        optionObject.name = $"{mod.info.name}/{option.Section}/{option.Name}";
-                        var controller = optionObject.GetComponent<OptionController>();
-                        controller.BaseOption = option;
-                        controller.OnOptionHovered += () => {
-                            infoPanel.ShowInfoFor(option);
-                            infoPanel.ShowResetButtonFor(controller);
-                        };
-                        cachedOptions.Add(optionObject);
+                        var obj = context.AppendControllerForOption(option, infoPanel);
+                        obj.name = $"{mod.info.name}/{option.Section}/{option.Name}";
+                        cachedOptions.Add(obj);
                     }
                     
                     // refresh context and run user defined builder

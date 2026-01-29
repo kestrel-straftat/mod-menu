@@ -19,17 +19,15 @@ namespace ModMenu.Mods
         public readonly BepInEx.PluginInfo pluginInfo;
         public bool HasAnyConfigs => config.Count > 0;
         public bool HasAdvancedMetadata { get; private set; } = false;
-        public Action<OptionListContext>? customContentBuilder;
+        public readonly Action<OptionListContext>? customContentBuilder;
 
         public Mod(ModInfo info) {
             this.info = info;
             if (!Chainloader.PluginInfos.TryGetValue(info.guid, out pluginInfo))
                 return;
 
-            if (Api.ModMenuCustomisation.Builders.TryGetValue(info.guid, out var builder)) {
-                customContentBuilder = builder;
-            }
-            
+            Api.ModMenuCustomisation.Builders.TryGetValue(info.guid, out customContentBuilder);
+           
             LoadMetadata();
 
             LoadConfigEntries();   

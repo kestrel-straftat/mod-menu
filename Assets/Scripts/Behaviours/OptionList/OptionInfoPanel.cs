@@ -1,11 +1,11 @@
-using ModMenu.Behaviours.OptionControllers;
+using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Options;
 using ModMenu.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ModMenu.Behaviours
+namespace ModMenu.Behaviours.OptionList
 {
     internal class OptionInfoPanel : MonoBehaviour
     {
@@ -40,11 +40,11 @@ namespace ModMenu.Behaviours
             }
         }
 
-        public void ShowResetButtonFor(OptionController controller) {
+        public void ShowResetButtonFor(BoxedValueController controller) {
             resetButton.gameObject.SetActive(true);
             
             resetButton.onClick.AddListener(() => {
-                controller.ResetToDefault();
+                controller.ResetValue();
                 controller.UpdateAppearance();
             });
         }

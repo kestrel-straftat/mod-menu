@@ -141,8 +141,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6370918845621197426}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.QuaternionOptionController,
+      - m_Target: {fileID: 2678457741398116955}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.QuaternionValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -706,8 +706,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 6370918845621197426}
   - component: {fileID: 213688270903571600}
+  - component: {fileID: 2678457741398116955}
   m_Layer: 5
   m_Name: QuaternionOption
   m_TagString: Untagged
@@ -822,23 +822,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6370918845621197426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37bff5d279848b4a8c1261db51c7da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  xInputField: {fileID: 3277173477917438462}
-  yInputField: {fileID: 2102474307437775611}
-  zInputField: {fileID: 4295960262405492337}
-  wInputField: {fileID: 5773415872669790608}
 --- !u!114 &213688270903571600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +851,23 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &2678457741398116955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc70ea8280924282863e7681f3056b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  xInputField: {fileID: 3277173477917438462}
+  yInputField: {fileID: 2102474307437775611}
+  zInputField: {fileID: 4295960262405492337}
+  wInputField: {fileID: 5773415872669790608}
 --- !u!1 &4916598652329992112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,8 +1144,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6370918845621197426}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.QuaternionOptionController,
+      - m_Target: {fileID: 2678457741398116955}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.QuaternionValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -1354,8 +1354,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6370918845621197426}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.QuaternionOptionController,
+      - m_Target: {fileID: 2678457741398116955}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.QuaternionValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -2094,8 +2094,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6370918845621197426}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.QuaternionOptionController,
+      - m_Target: {fileID: 2678457741398116955}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.QuaternionValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0

@@ -1,3 +1,4 @@
+using ModMenu.Behaviours.ModList;
 using UnityEngine;
 
 namespace ModMenu.Behaviours

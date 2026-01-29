@@ -124,9 +124,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8819010904054262961}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.KeyboardShortcutOptionController,
-          ModMenu
+      - m_Target: {fileID: 2348068469676557848}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.KeybindValueController`1[[BepInEx.Configuration.KeyboardShortcut,
+          BepInEx
         m_MethodName: OnRebindButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -334,8 +334,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 8819010904054262961}
   - component: {fileID: 4304165713004342627}
+  - component: {fileID: 2348068469676557848}
   m_Layer: 5
   m_Name: KeyboardShortcutOption
   m_TagString: Untagged
@@ -449,21 +449,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &8819010904054262961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba7ec88cb304c80a08b92a939829cfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  button: {fileID: 7384516027540426507}
-  buttonText: {fileID: 3549413748626214469}
 --- !u!114 &4304165713004342627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +478,20 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &2348068469676557848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b591c29e344c4b33a431759d58cfffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  buttonText: {fileID: 3549413748626214469}
 --- !u!1 &6579316956062570417
 GameObject:
   m_ObjectHideFlags: 0

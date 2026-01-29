@@ -141,8 +141,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7466840588697944463}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.IntegralInputFieldController,
+      - m_Target: {fileID: 5104624728133710156}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.NumericInputFieldValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -275,8 +275,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 7466840588697944463}
   - component: {fileID: -1762539337284089548}
+  - component: {fileID: 5104624728133710156}
   m_Layer: 5
   m_Name: IntegralInputFieldOption
   m_TagString: Untagged
@@ -390,20 +390,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &7466840588697944463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a8ae54abff45adb504099bcae7842a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  inputField: {fileID: 3277173477917438462}
 --- !u!114 &-1762539337284089548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +419,20 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &5104624728133710156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be73e9e0f874b4c8d01abbe3ca2b51c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  inputField: {fileID: 3277173477917438462}
 --- !u!1 &6579316956062570417
 GameObject:
   m_ObjectHideFlags: 0

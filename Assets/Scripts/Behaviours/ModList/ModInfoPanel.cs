@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ModMenu.Behaviours
+namespace ModMenu.Behaviours.ModList
 {
     internal class ModInfoPanel : MonoBehaviour
     {

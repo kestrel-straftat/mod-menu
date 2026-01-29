@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModMenu.Behaviours;
-using ModMenu.Behaviours.Dummies;
+using ModMenu.Behaviours.OptionList;
+using ModMenu.Behaviours.OptionList.Dummies;
+using ModMenu.Behaviours.OptionList.ValueControllers;
+using ModMenu.Mods;
+using ModMenu.Options;
 using ModMenu.Utils;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -80,9 +84,21 @@ namespace ModMenu.Api
             dummy.transform.SetSiblingIndex(FindActualIndex(position));
             return dummy;
         }
-        
+
         // helpers for option list generation
 
+        internal GameObject AppendControllerForOption(Option option, OptionInfoPanel infoPanel) {
+            var obj = Object.Instantiate(option.GetListItemPrefab(), Root);
+            var controller = obj.GetComponent<BoxedValueController>();
+            controller.SetupFromOption(option);
+            controller.NameText = option.Name;
+            controller.OnItemHovered += () => {
+                infoPanel.ShowInfoFor(option);
+                infoPanel.ShowResetButtonFor(controller);
+            };
+            return controller.gameObject;
+        }
+        
         // returns an array containing the children of the root object
         // that have been instantiated since the context was created
         internal GameObject[] GetNewChildren() {

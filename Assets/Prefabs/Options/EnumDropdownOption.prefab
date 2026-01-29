@@ -308,8 +308,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4657849509514147108}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.EnumDropdownController,
+      - m_Target: {fileID: 6447348728598047057}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.DropdownValueController,
           ModMenu
         m_MethodName: OnDropdownValueChanged
         m_Mode: 0
@@ -914,8 +914,8 @@ GameObject:
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
   - component: {fileID: 5756822073069043310}
-  - component: {fileID: 4657849509514147108}
   - component: {fileID: -8305501972933375546}
+  - component: {fileID: 6447348728598047057}
   m_Layer: 5
   m_Name: EnumDropdownOption
   m_TagString: Untagged
@@ -1029,20 +1029,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &4657849509514147108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15512165ad5e4edfab0bc76225f09b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  dropdown: {fileID: 1666076024534046465}
 --- !u!114 &-8305501972933375546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,6 +1058,20 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &6447348728598047057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dad03a420b94e57af06b1b8e1b63273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  dropdown: {fileID: 1666076024534046465}
 --- !u!1 &6579316956062570417
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using BepInEx.Configuration;
+using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Utils;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ namespace ModMenu.Options
     {
         public EnumDropdownOption(ConfigEntryBase entry) : base(entry) { }
         
-        public override GameObject InstantiateOptionObject(Transform parent) {
-            return Object.Instantiate(Assets.EnumDropdownOption, parent);
+        public override GameObject GetListItemPrefab() {
+            return Assets.EnumDropdownOption;
         }
     }
 }

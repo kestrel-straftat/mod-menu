@@ -1,8 +1,9 @@
 using System.Linq;
+using ModMenu.Behaviours.OptionList;
 using ModMenu.Mods;
 using UnityEngine;
 
-namespace ModMenu.Behaviours
+namespace ModMenu.Behaviours.ModList
 {
     internal class ModListPanel : MonoBehaviour
     {

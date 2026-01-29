@@ -141,8 +141,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4725878123369394830}
-        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionControllers.ColorOptionController,
+      - m_Target: {fileID: 7095130384947559762}
+        m_TargetAssemblyTypeName: ModMenu.Behaviours.OptionList.ValueControllers.ColorInputValueController,
           ModMenu
         m_MethodName: OnInputFieldEndEdit
         m_Mode: 0
@@ -458,8 +458,8 @@ GameObject:
   - component: {fileID: 277281980538898270}
   - component: {fileID: 3256007565318832315}
   - component: {fileID: 7239988498985040689}
-  - component: {fileID: 4725878123369394830}
   - component: {fileID: -8643301608080029540}
+  - component: {fileID: 7095130384947559762}
   m_Layer: 5
   m_Name: ColorOption
   m_TagString: Untagged
@@ -553,21 +553,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4725878123369394830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542109912437542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4a5b12dd234ac18a7b6a4c7d2a01f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 168498274821437172}
-  inputField: {fileID: 3277173477917438462}
-  preview: {fileID: 1144212472789912206}
 --- !u!114 &-8643301608080029540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +582,21 @@ MonoBehaviour:
   addFriendButton: 0
   randomizedLockedButton: 0
   customText: 
+--- !u!114 &7095130384947559762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542109912437542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd569caa1eb44a3bbfdd2fe9b3571df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 168498274821437172}
+  inputField: {fileID: 3277173477917438462}
+  preview: {fileID: 1144212472789912206}
 --- !u!1 &4950991944339135661
 GameObject:
   m_ObjectHideFlags: 0
