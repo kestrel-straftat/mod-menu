@@ -1,3 +1,4 @@
+using System;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
@@ -32,31 +33,22 @@ namespace ModMenu
             gameObject.hideFlags = HideFlags.HideAndDontSave;
             Instance = this;
             Logger = base.Logger;
-            
-            ModMenuCustomisation.RegisterContentBuilder((OptionListContext c) => {
-                c.InsertHeader(13, "Custom Section 1");
-                
-                c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.")
-                    .GetComponent<LayoutElement>().preferredHeight = 128;
-                c.InsertButton(15, () => {
-                    PauseManager.Instance.WriteOfflineLog("Button pressed!");
-                }, buttonText: "A very interesting button");
-                c.InsertButton(16, () => {
-                    var pluginPath = BepInEx.Paths.PluginPath;
-                    PauseManager.Instance.WriteOfflineLog($"Plugins directory: {pluginPath}");
-                }, "Plugins Directory", "Show Path");
-                
-                
-                c.AppendHeader("Custom Section 2");
-                
-                c.AppendTextBox("Some colored text! :3")
-                    .Color = new Color(0.77254903f, 0.5254902f, 1f);
-            });
+
+            ModMenuCustomisation.RegisterContentBuilder(CustomContentBuilder);
             
             Assets.Init();
             CreateExampleConfigs();
             new Harmony(PluginInfo.guid).PatchAll();
             Logger.LogInfo("Hiiiiiiiiiiii :3");
+        }
+        
+        private enum TestEnum
+        {
+            OptionA,
+            OptionB,
+            OptionC,
+            OptionD,
+            AndSoOn
         }
         
         private void CreateExampleConfigs() {
@@ -88,13 +80,134 @@ namespace ModMenu
             Config.Bind("Examples.Other", "KeyCode", KeyCode.A, "A keycode");
         }
 
-        public enum TestEnum
+        private enum TestEnum2
         {
-            OptionA,
-            OptionB,
-            OptionC,
-            OptionD,
-            AndSoOn
+            AnotherTestEnum,
+            IsntThisCool,
+            HeyHiiiiHeyLookAtMe,
+            ColonThree
+        }
+
+        private static void CustomContentBuilder(OptionListContext c) {
+            c.InsertHeader(13, "Custom Section 1");
+                
+            c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.")
+                .GetComponent<LayoutElement>().preferredHeight = 128;
+            c.InsertButton(15, () => {
+                PauseManager.Instance.WriteOfflineLog("Button pressed!");
+            }, buttonText: "A very interesting button");
+            c.InsertButton(16, () => {
+                var pluginPath = BepInEx.Paths.PluginPath;
+                PauseManager.Instance.WriteOfflineLog($"Plugins directory: {pluginPath}");
+            }, "Plugins Directory", "Show Path");
+            
+            
+            c.AppendHeader("Custom Section 2");
+
+            c.AppendTextBox("Another custom section!");
+            c.AppendTextBox("With some colored text! :3")
+                .Color = new Color(0.77254903f, 0.5254902f, 1f);
+
+            var dropdownValue = TestEnum2.AnotherTestEnum;
+            c.AppendDropdown("Custom Dropdown", () => dropdownValue, value => {
+                dropdownValue = value;
+                PauseManager.Instance.WriteOfflineLog($"dropdownValue is {dropdownValue}");
+            });
+            
+            bool boolValue = false;
+            c.AppendCheckbox("Custom Checkbox", () => boolValue, value => {
+                boolValue = value;
+                PauseManager.Instance.WriteOfflineLog($"checkboxValue is {value}");
+            });
+            
+            var colorValue = new Color(0.77254903f, 0.5254902f, 1f);
+            c.AppendColorInput("Custom Color Input", () => colorValue, value => {
+                colorValue = value;
+                PauseManager.Instance.WriteOfflineLog($"colorValue is {value}");
+            });
+
+            var stringValue = "hiii";
+            c.AppendStringInput("Custom String Input", () => stringValue, value => {
+                stringValue = value;
+                PauseManager.Instance.WriteOfflineLog($"stringValue is {value}");
+            });
+
+            var keyboardShortcutValue = KeyboardShortcut.Empty;
+            c.AppendKeyboardShortcutInput("Custom Keyboard Shortcut Input", () => keyboardShortcutValue, value => {
+                keyboardShortcutValue = value;
+                PauseManager.Instance.WriteOfflineLog($"keyboardShortcutValue is {value}");
+            });
+
+            var keyCodeValue = KeyCode.None;
+            c.AppendKeyCodeInput("Custom KeyCode Input", () => keyCodeValue, value => {
+                keyCodeValue = value;
+                PauseManager.Instance.WriteOfflineLog($"keyCodeValue is {value}");
+            });
+
+            var quaternionValue = Quaternion.identity;
+            c.AppendQuaternionInput("Custom Quaternion Input", () => quaternionValue, value => {
+                quaternionValue = value;
+                PauseManager.Instance.WriteOfflineLog($"quaternionValue is {value}");
+            });
+            
+            var vector2Value = Vector2.zero;
+            c.AppendVector2Input("Custom Vector2 Input", () => vector2Value, value => {
+                vector2Value = value;
+                PauseManager.Instance.WriteOfflineLog($"vector2Value is {value}");
+            });
+            
+            var vector3Value = Vector3.zero;
+            c.AppendVector3Input("Custom Vector3 Input", () => vector3Value, value => {
+                vector3Value = value;
+                PauseManager.Instance.WriteOfflineLog($"vector3Value is {value}");
+            });
+            
+            var vector4Value = Vector4.zero;
+            c.AppendVector4Input("Custom Vector4 Input", () => vector4Value, value => {
+                vector4Value = value;
+                PauseManager.Instance.WriteOfflineLog($"vector4Value is {value}");
+            });
+            
+            c.AppendTextBox("Ok now some weird stuff")
+                .Color = new Color(0.77254903f, 0.5254902f, 1f);
+            
+            float floatValue = 0;
+            
+            Action<float> setFloatValue = value => {
+                floatValue = value;
+                PauseManager.Instance.WriteOfflineLog($"floatValue is {floatValue}");
+            };
+            
+            var inputField = c.AppendNumericInputField("Custom Float Input", () => floatValue, setFloatValue);
+            var slider = c.AppendNumericSlider("Custom Float Slider", () => floatValue, setFloatValue, 0, 100);
+
+            // some funky stuff to make the slider & input field visually update correctly when the other is changed
+            // beware of this if you have multiple custom items referencing the same value!
+            inputField.boxedSetter += _ => slider.UpdateAppearance();
+            slider.boxedSetter += _ => inputField.UpdateAppearance();
+
+
+            int sliderMin = -200, sliderMax = 200;
+            float floatValue2 = 0;
+
+
+            var floatSlider2 = c.AppendNumericSlider("Custom Float Slider 2", () => floatValue2, value => {
+                floatValue2 = value;
+                PauseManager.Instance.WriteOfflineLog($"floatValue2 is {floatValue2}");
+            }, sliderMin, sliderMax);
+            
+            var minSlider = c.AppendNumericSlider("Slider 2 Min (int slider example)", () => sliderMin, value => {
+                sliderMin = value;
+                floatSlider2.slider.minValue = sliderMin;
+            }, -1000, sliderMax - 5);
+
+            var maxSlider = c.AppendNumericSlider("Slider 2 Max (int slider example)", () => sliderMax, value => {
+                sliderMax = value;
+                floatSlider2.slider.maxValue = sliderMax;
+            }, sliderMin + 5, 1000);
+            
+            minSlider.boxedSetter += _ => maxSlider.slider.minValue = sliderMin + 5;
+            maxSlider.boxedSetter += _ => minSlider.slider.maxValue = sliderMax - 5;
         }
     }
 }

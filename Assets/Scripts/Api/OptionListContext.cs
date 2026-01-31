@@ -1,19 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModMenu.Behaviours;
 using ModMenu.Behaviours.OptionList;
-using ModMenu.Behaviours.OptionList.Dummies;
 using ModMenu.Behaviours.OptionList.ValueControllers;
-using ModMenu.Mods;
 using ModMenu.Options;
-using ModMenu.Utils;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace ModMenu.Api
 {
-    public class OptionListContext
+    public partial class OptionListContext
     {
         public Transform Root { get; }
 
@@ -25,64 +21,6 @@ namespace ModMenu.Api
             foreach (Transform child in root) {
                 originalChildren.Add(child.gameObject);
             }
-        }
-        
-        // premade objects
-        
-        public TextDummy AppendHeader(string text) {
-            var dummy = Object.Instantiate(Assets.CategoryHeader, Root).GetComponent<TextDummy>();
-            dummy.Text = text;
-            return dummy;
-        }
-
-        public TextDummy PrependHeader(string text) {
-            var dummy = AppendHeader(text);
-            dummy.transform.SetAsFirstSibling();
-            return dummy;
-        }
-        
-        public TextDummy InsertHeader(int position, string text) {
-            var dummy = AppendHeader(text);
-            dummy.transform.SetSiblingIndex(FindActualIndex(position));
-            return dummy;
-        }
-
-        public TextDummy AppendTextBox(string text) {
-            var dummy = Object.Instantiate(Assets.TextDummy, Root).GetComponent<TextDummy>();
-            dummy.Text = text;
-            return dummy;
-        }
-
-        public TextDummy PrependTextBox(string text) {
-            var dummy = AppendTextBox(text);
-            dummy.transform.SetAsLastSibling();
-            return dummy;
-        }
-
-        public TextDummy InsertTextBox(int position, string text) {
-            var dummy = AppendTextBox(text);
-            dummy.transform.SetSiblingIndex(FindActualIndex(position));
-            return dummy;
-        }
-
-        public ButtonDummy AppendButton(Action onClick, string buttonText, string nameText = "") {
-            var dummy = Object.Instantiate(Assets.ButtonDummy, Root).GetComponent<ButtonDummy>();
-            dummy.button.onClick.AddListener(onClick.Invoke);
-            dummy.ButtonText = buttonText;
-            dummy.NameText = nameText;
-            return dummy;
-        }
-
-        public ButtonDummy PrependButton(Action onClick, string buttonText, string nameText = "") {
-            var dummy = AppendButton(onClick, buttonText, nameText);
-            dummy.transform.SetAsLastSibling();
-            return dummy;
-        }
-
-        public ButtonDummy InsertButton(int position, Action onClick, string nameText = "", string buttonText = "") {
-            var dummy = AppendButton(onClick, buttonText, nameText);
-            dummy.transform.SetSiblingIndex(FindActualIndex(position));
-            return dummy;
         }
 
         // helpers for option list generation

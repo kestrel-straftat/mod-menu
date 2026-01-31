@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class Vector4ValueController : ValueController<Vector4>
+    public class Vector4ValueController : ValueController<Vector4>
     {
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;

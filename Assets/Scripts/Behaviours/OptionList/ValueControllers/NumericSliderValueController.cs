@@ -27,7 +27,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
 
         public void OnSliderValueChanged(float value) {
             if (Convert.ChangeType(value, ValueType) is { } converted) {
-                BoxedSetter(converted);
+                boxedSetter(converted);
             }
             
             UpdateAppearance();
@@ -37,7 +37,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public void OnInputFieldEndEdit(string value) {
             try {
                 if (Convert.ChangeType(value, ValueType) is { } converted) {
-                    BoxedSetter(converted);
+                    boxedSetter(converted);
                 }
             }
             catch (Exception e) when (e is OverflowException or FormatException or InvalidCastException) {
@@ -48,7 +48,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         public override void UpdateAppearance() {
-            var value = BoxedGetter();
+            var value = boxedGetter();
             slider.SetValueWithoutNotify(Convert.ToSingle(value));
             inputField.SetTextWithoutNotify(m_isIntegralType ? value.ToString() : $"{value:F}");
         }
