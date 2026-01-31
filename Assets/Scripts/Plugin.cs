@@ -33,6 +33,7 @@ namespace ModMenu
             Instance = this;
             Logger = base.Logger;
 
+            // register the content builder with the ModMenu API
             ModMenuCustomisation.RegisterContentBuilder(CustomContentBuilder);
             
             Assets.Init();
@@ -40,6 +41,8 @@ namespace ModMenu
             new Harmony(PluginInfo.guid).PatchAll();
             Logger.LogInfo("Hiiiiiiiiiiii :3");
         }
+        
+        // VISITORS: You're probably here for the stuff down there vvvvvvv
         
         private enum TestEnum
         {
@@ -90,7 +93,8 @@ namespace ModMenu
         private static void CustomContentBuilder(OptionListContext c) {
             c.InsertHeader(13, "Custom Section 1");
                 
-            c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.")
+            c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page. " +
+                                "Go to Assets/Scripts/Plugin.cs in the mod's source code to see example usage of the API.")
                 .GetComponent<LayoutElement>().preferredHeight = 128;
             c.InsertButton(15, "", "A very interesting button", () => {
                 PauseManager.Instance.WriteOfflineLog("Button pressed!");
@@ -99,7 +103,6 @@ namespace ModMenu
                 var pluginPath = BepInEx.Paths.PluginPath;
                 PauseManager.Instance.WriteOfflineLog($"Plugins directory: {pluginPath}");
             });
-            
             
             c.AppendHeader("Custom Section 2");
 
@@ -125,7 +128,7 @@ namespace ModMenu
                 PauseManager.Instance.WriteOfflineLog($"colorValue is {value}");
             });
 
-            var stringValue = "hiii";
+            string stringValue = "hiii";
             c.AppendStringInput("Custom String Input", () => stringValue, value => {
                 stringValue = value;
                 PauseManager.Instance.WriteOfflineLog($"stringValue is {value}");
@@ -185,10 +188,8 @@ namespace ModMenu
             inputField.setter += _ => slider.UpdateAppearance();
             slider.setter += _ => inputField.UpdateAppearance();
 
-
             int sliderMin = -200, sliderMax = 200;
             float floatValue2 = 0;
-
 
             var floatSlider2 = c.AppendNumericSlider("Custom Float Slider 2", () => floatValue2, value => {
                 floatValue2 = value;
