@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class QuaternionValueController : ValueController<Quaternion>
+    public class QuaternionValueController : ValueController<Quaternion>
     {
         public TMP_InputField xInputField;
         public TMP_InputField yInputField;

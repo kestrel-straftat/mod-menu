@@ -9,17 +9,17 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
     public abstract class BoxedValueController : OptionListItem
     {
         private object m_defaultValue;
-        private Tweener m_errorShake; 
-        
-        public Func<object> BoxedGetter { get; private set; }
-        public Action<Object> BoxedSetter { get; private set; }
+        private Tweener m_errorShake;
+
+        public Func<object> boxedGetter;
+        public Action<Object> boxedSetter;
         public Type ValueType { get; private set; }
         
         private void Start() {
             m_errorShake = DOTween.Shake(() => transform.localPosition, p => transform.localPosition = p, 0.2f, 15f * Vector3.right, 20).SetAutoKill(false).Pause();
         }
         
-        public virtual void ResetValue() => BoxedSetter(m_defaultValue);
+        public virtual void ResetValue() => boxedSetter(m_defaultValue);
         public abstract void UpdateAppearance();
         protected virtual void Setup() { }
 
@@ -27,8 +27,8 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
             m_defaultValue = option.BaseEntry.DefaultValue;
             ValueType = option.BaseEntry.SettingType;
             
-            BoxedGetter = () => option.BoxedValue;
-            BoxedSetter = value => {
+            boxedGetter = () => option.BoxedValue;
+            boxedSetter = value => {
                 try {
                     option.BoxedValue = value;
                 }
@@ -47,15 +47,20 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         internal virtual void SetupFromValues<T>(Func<T> getter, Action<T> setter) {
+            m_defaultValue = default(T);
+            
             ValueType = typeof(T);
-            BoxedGetter = () => getter();
-            BoxedSetter = value => setter((T)value);
+            boxedGetter = () => getter();
+            boxedSetter = value => setter((T)value);
+            
+            Setup();
+            UpdateAppearance();
         }
     }
     
     public abstract class ValueController<T> : BoxedValueController
     {
-        public T Getter() => (T)BoxedGetter();
-        public void Setter(T value) => BoxedSetter(value);
+        public T Getter() => (T)boxedGetter();
+        public void Setter(T value) => boxedSetter(value);
     }
 }

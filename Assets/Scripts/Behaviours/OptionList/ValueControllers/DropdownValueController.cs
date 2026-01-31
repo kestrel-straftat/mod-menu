@@ -22,12 +22,12 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         public void OnDropdownValueChanged(int index) {
-            BoxedSetter(m_dropdownValues[index]);
+            boxedSetter(m_dropdownValues[index]);
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            dropdown.SetValueWithoutNotify(Array.IndexOf(m_dropdownValues, BoxedGetter()));
+            dropdown.SetValueWithoutNotify(Array.IndexOf(m_dropdownValues, boxedGetter()));
         }
 
         internal override void SetupFromOption(Option option) {
@@ -42,6 +42,16 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
                 SetValuesFromOption(option);
             }
             base.SetupFromOption(option);
+        }
+
+        internal override void SetupFromValues<T>(Func<T> getter, Action<T> setter) {
+            if (!typeof(T).IsEnum) {
+                throw new InvalidOperationException("Cannot setup a dropdown value controller by values from a non-enum type");
+            }
+            
+            SetValuesFromEnum(typeof(T));
+            
+            base.SetupFromValues(getter, setter);
         }
 
         private void SetValuesFromEnum(Type enumType) {

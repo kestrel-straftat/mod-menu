@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
-    internal class ColorValueController : ValueController<Color>
+    public class ColorValueController : ValueController<Color>
     {
         public TMP_InputField inputField;
         public Image preview;
