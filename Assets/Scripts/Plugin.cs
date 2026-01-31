@@ -13,6 +13,10 @@ using UnityEngine.UI;
 
 namespace ModMenu
 {
+    // ------------------------------------------------------------------
+    // VISITORS: See Awake() & the stuff below it for example API usage.
+    // ------------------------------------------------------------------
+    
     public static class PluginInfo
     {
         public const string guid = "kestrel.straftat.modmenu";
@@ -24,6 +28,7 @@ namespace ModMenu
     public class Plugin : BaseUnityPlugin
     {
         public static Plugin Instance { get; private set; }
+        
         internal static new ManualLogSource Logger;
         
         private static ConfigEntry<string> m_superSecretConfigEntry;
@@ -52,8 +57,6 @@ namespace ModMenu
             new Harmony(PluginInfo.guid).PatchAll();
             Logger.LogInfo("Hiiiiiiiiiiii :3");
         }
-        
-        // VISITORS: You're probably here for the stuff down there vvvvvvv
         
         private enum TestEnum
         {

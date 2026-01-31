@@ -1,6 +1,7 @@
 ### v1.1.3
 
-- Added an API for mod developers to add items to their mod's settings page!
+- Added an API for mod developers to add items to and customise their mod's settings page!
+  - see the readme for a quick walkthrough of its usage
 - The mod now functions properly on platforms using vulkan (i.e. linux native)
 
 ### v1.0.3
