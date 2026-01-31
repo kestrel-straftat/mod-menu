@@ -22,12 +22,12 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         public void OnDropdownValueChanged(int index) {
-            boxedSetter(m_dropdownValues[index]);
+            setter.Invoke(m_dropdownValues[index]);
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            dropdown.SetValueWithoutNotify(Array.IndexOf(m_dropdownValues, boxedGetter()));
+            dropdown.SetValueWithoutNotify(Array.IndexOf(m_dropdownValues, getter.Invoke()));
         }
 
         internal override void SetupFromOption(Option option) {

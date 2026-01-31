@@ -2,7 +2,6 @@ using System;
 using DG.Tweening;
 using ModMenu.Options;
 using UnityEngine;
-using Object = System.Object;
 
 namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
@@ -11,18 +10,19 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
     /// </summary>
     public abstract class BoxedValueController : OptionListItem
     {
+        public Func<object> getter;
+        public Action<object> setter;
+        
         private object m_defaultValue;
         private Tweener m_errorShake;
-
-        public Func<object> boxedGetter;
-        public Action<Object> boxedSetter;
+        
         public Type ValueType { get; private set; }
         
         private void Start() {
             m_errorShake = DOTween.Shake(() => transform.localPosition, p => transform.localPosition = p, 0.2f, 15f * Vector3.right, 20).SetAutoKill(false).Pause();
         }
         
-        public virtual void ResetValue() => boxedSetter(m_defaultValue);
+        public virtual void ResetValue() => setter(m_defaultValue);
         public abstract void UpdateAppearance();
         protected virtual void Setup() { }
 
@@ -30,8 +30,8 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
             m_defaultValue = option.BaseEntry.DefaultValue;
             ValueType = option.BaseEntry.SettingType;
             
-            boxedGetter = () => option.BoxedValue;
-            boxedSetter = value => {
+            getter = () => option.BoxedValue;
+            setter = value => {
                 try {
                     option.BoxedValue = value;
                 }
@@ -53,8 +53,8 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
             m_defaultValue = default(T);
             
             ValueType = typeof(T);
-            boxedGetter = () => getter();
-            boxedSetter = value => setter((T)value);
+            this.getter = () => getter();
+            this.setter = value => setter((T)value);
             
             Setup();
             UpdateAppearance();
@@ -66,7 +66,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
     /// </summary>
     public abstract class ValueController<T> : BoxedValueController
     {
-        public T Getter() => (T)boxedGetter();
-        public void Setter(T value) => boxedSetter(value);
+        public T GetValue() => (T)getter();
+        public void SetValue(T value) => setter(value);
     }
 }

@@ -11,7 +11,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public TMP_InputField wInputField;
         
         public void OnInputFieldEndEdit() {
-            var originalValue = Getter();
+            var originalValue = GetValue();
             float x = originalValue.x;
             float y = originalValue.y;
             float z = originalValue.z;
@@ -33,13 +33,13 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
                 w = newW;
             }
             
-            Setter(new Quaternion(x, y, z, w));
+            SetValue(new Quaternion(x, y, z, w));
             
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            var value = Getter();
+            var value = GetValue();
             xInputField.SetTextWithoutNotify(value.x.ToString("F"));
             yInputField.SetTextWithoutNotify(value.y.ToString("F"));
             zInputField.SetTextWithoutNotify(value.z.ToString("F"));

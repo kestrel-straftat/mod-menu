@@ -9,7 +9,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public TMP_InputField yInputField;
         
         public void OnInputFieldEndEdit() {
-            var originalValue = Getter();
+            var originalValue = GetValue();
             float x = originalValue.x;
             float y = originalValue.y;
 
@@ -21,13 +21,13 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
                 y = newY;
             }
             
-            Setter(new Vector2(x, y));
+            SetValue(new Vector2(x, y));
             
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            var value = Getter();
+            var value = GetValue();
             xInputField.SetTextWithoutNotify(value.x.ToString("F"));
             yInputField.SetTextWithoutNotify(value.y.ToString("F"));
         }

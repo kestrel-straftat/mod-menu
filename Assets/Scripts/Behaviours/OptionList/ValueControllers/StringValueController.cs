@@ -7,12 +7,12 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public TMP_InputField inputField;
 
         public void OnInputFieldEndEdit(string value) {
-            Setter(value);
+            SetValue(value);
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            inputField.SetTextWithoutNotify(Getter());
+            inputField.SetTextWithoutNotify(GetValue());
         }
     }
 }

@@ -8,14 +8,14 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
     {
         protected override void UpdateRebinding() {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                Setter(KeyboardShortcut.Empty);
+                SetValue(KeyboardShortcut.Empty);
                 StopRebinding();
                 return;
             }
 
             foreach (var key in keysToCheck) {
                 if (Input.GetKeyUp(key)) {
-                    Setter(new KeyboardShortcut(key, keysToCheck.Where(Input.GetKey).ToArray()));
+                    SetValue(new KeyboardShortcut(key, keysToCheck.Where(Input.GetKey).ToArray()));
                     StopRebinding();
                     break;
                 }

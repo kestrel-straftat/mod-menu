@@ -7,12 +7,12 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public Toggle toggle;
 
         public void OnCheckboxValueChanged(bool value) {
-            Setter(value);
+            SetValue(value);
             UpdateAppearance();
         }
 
         public override void UpdateAppearance() {
-            toggle.SetIsOnWithoutNotify(Getter());
+            toggle.SetIsOnWithoutNotify(GetValue());
         }
     }
 }

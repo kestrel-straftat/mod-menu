@@ -17,7 +17,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public void OnInputFieldEndEdit(string value) {
             try {
                 if (Convert.ChangeType(value, ValueType) is { } converted) {
-                    boxedSetter(converted);
+                    setter.Invoke(converted);
                 }
             }
             catch (Exception ex) when (ex is OverflowException or FormatException or InvalidCastException) {
@@ -28,7 +28,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         public override void UpdateAppearance() {
-            inputField.SetTextWithoutNotify(m_isIntegralType? boxedGetter().ToString() : $"{boxedGetter():F}");
+            inputField.SetTextWithoutNotify(m_isIntegralType? getter.Invoke().ToString() : $"{getter.Invoke():F}");
         }
     }
 }

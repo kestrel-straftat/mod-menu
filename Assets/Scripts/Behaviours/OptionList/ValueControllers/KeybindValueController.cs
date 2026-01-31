@@ -38,7 +38,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
 
         public override void UpdateAppearance() {
-            buttonText.text = rebinding ? "Cancel" : Getter().ToString();
+            buttonText.text = rebinding ? "Cancel" : GetValue().ToString();
         }
         
         protected abstract void UpdateRebinding();

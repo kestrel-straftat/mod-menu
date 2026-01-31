@@ -8,7 +8,6 @@ using ModMenu.Api;
 using ModMenu.Utils;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Windows;
 
 [assembly: StraftatMod(isVanillaCompatible: true)]
 
@@ -106,7 +105,7 @@ namespace ModMenu
 
             c.AppendTextBox("Another custom section!");
             c.AppendTextBox("With some colored text! :3")
-                .Color = new Color(0.77254903f, 0.5254902f, 1f);
+                .Color = new Color(0.77f, 0.53f, 1f);
 
             var dropdownValue = TestEnum2.AnotherTestEnum;
             c.AppendDropdown("Custom Dropdown", () => dropdownValue, value => {
@@ -120,7 +119,7 @@ namespace ModMenu
                 PauseManager.Instance.WriteOfflineLog($"checkboxValue is {value}");
             });
             
-            var colorValue = new Color(0.77254903f, 0.5254902f, 1f);
+            var colorValue = new Color(0.77f, 0.53f, 1f);
             c.AppendColorInput("Custom Color Input", () => colorValue, value => {
                 colorValue = value;
                 PauseManager.Instance.WriteOfflineLog($"colorValue is {value}");
@@ -183,8 +182,8 @@ namespace ModMenu
 
             // some funky stuff to make the slider & input field visually update correctly when the other is changed
             // beware of this if you have multiple custom items referencing the same value!
-            inputField.boxedSetter += _ => slider.UpdateAppearance();
-            slider.boxedSetter += _ => inputField.UpdateAppearance();
+            inputField.setter += _ => slider.UpdateAppearance();
+            slider.setter += _ => inputField.UpdateAppearance();
 
 
             int sliderMin = -200, sliderMax = 200;
@@ -206,8 +205,8 @@ namespace ModMenu
                 floatSlider2.slider.maxValue = sliderMax;
             }, sliderMin + 5, 1000);
             
-            minSlider.boxedSetter += _ => maxSlider.slider.minValue = sliderMin + 5;
-            maxSlider.boxedSetter += _ => minSlider.slider.maxValue = sliderMax - 5;
+            minSlider.setter += _ => maxSlider.slider.minValue = sliderMin + 5;
+            maxSlider.setter += _ => minSlider.slider.maxValue = sliderMax - 5;
         }
     }
 }
