@@ -2,11 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!55 &1
 PhysicsManager:
+  m_ObjectHideFlags: 0
   serializedVersion: 13
-  m_Gravity:
-    x: 0
-    y: -9.81
-    z: 0
+  m_Gravity: {x: 0, y: -9.81, z: 0}
   m_DefaultMaterial: {fileID: 0}
   m_BounceThreshold: 2
   m_DefaultMaxDepenetrationVelocity: 10
@@ -20,58 +18,17 @@ PhysicsManager:
   m_ClothInterCollisionDistance: 0
   m_ClothInterCollisionStiffness: 0
   m_ContactsGeneration: 1
-  m_LayerCollisionMatrix:
-  - 4160616447
-  - 4148819967
-  - 4148819967
-  - 4266255999
-  - 4149868543
-  - 4148819967
-  - 4283033215
-  - 4148754359
-  - 4148819895
-  - 4148819967
-  - 4149868543
-  - 4160352256
-  - 4148821943
-  - 4148822015
-  - 4160356351
-  - 4156948479
-  - 4148821887
-  - 4148690944
-  - 4149772289
-  - 4160716799
-  - 4148972561
-  - 4157097985
-  - 4152360959
-  - 4155033601
-  - 4160749559
-  - 4160749567
-  - 4160749567
-  - 4026531912
-  - 4294967295
-  - 4294967295
-  - 4294967295
-  - 4294967295
-  m_AutoSimulation: 0
+  m_LayerCollisionMatrix: fff7fdf7fff749f7fff749f77fe649fefff759f7fff749f77fe649ffb7f748f7b7f749f7fff749f7fff759f700f0f9f7b7ff49f7ffff49f7fffff9f7ffffc5f77fff49f7000048f7018058f7ff7ffff7114c4cf70148c8f7ffff7ff701c8a8f7f7fffff7fffffff7fffffff7480000f0ffffffffffffffffffffffffffffffff
+  m_AutoSimulation: 1
   m_AutoSyncTransforms: 1
   m_ReuseCollisionCallbacks: 1
   m_ClothInterCollisionSettingsToggle: 0
-  m_ClothGravity:
-    x: 0
-    y: -9.81
-    z: 0
+  m_ClothGravity: {x: 0, y: -9.81, z: 0}
   m_ContactPairsMode: 3
   m_BroadphaseType: 0
   m_WorldBounds:
-    m_Center:
-      x: 0
-      y: 0
-      z: 0
-    m_Extent:
-      x: 250
-      y: 250
-      z: 250
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 250, y: 250, z: 250}
   m_WorldSubdivisions: 8
   m_FrictionType: 0
   m_EnableEnhancedDeterminism: 0

@@ -11,15 +11,16 @@ namespace ModMenu.Api
 {
     public partial class OptionListContext
     {
+        /// <summary>The root transform of the option list</summary>
         public Transform Root { get; }
 
-        private HashSet<GameObject> originalChildren = new();
+        private HashSet<GameObject> m_originalChildren = new();
         
-        public OptionListContext(Transform root) {
+        internal OptionListContext(Transform root) {
             Root = root;
 
             foreach (Transform child in root) {
-                originalChildren.Add(child.gameObject);
+                m_originalChildren.Add(child.gameObject);
             }
         }
 
@@ -40,7 +41,7 @@ namespace ModMenu.Api
         // returns an array containing the children of the root object
         // that have been instantiated since the context was created
         internal GameObject[] GetNewChildren() {
-            if (Root.childCount == originalChildren.Count) {
+            if (Root.childCount == m_originalChildren.Count) {
                 return Array.Empty<GameObject>();
             }
 
@@ -48,7 +49,7 @@ namespace ModMenu.Api
 
             for (int i = 0; i < Root.childCount; ++i) {
                 var child = Root.GetChild(i).gameObject;
-                if (!originalChildren.Contains(child)) {
+                if (!m_originalChildren.Contains(child)) {
                     newChildren.Add(child);
                 }
             }

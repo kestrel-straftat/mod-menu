@@ -93,13 +93,13 @@ namespace ModMenu
                 
             c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page.")
                 .GetComponent<LayoutElement>().preferredHeight = 128;
-            c.InsertButton(15, () => {
+            c.InsertButton(15, "", "A very interesting button", () => {
                 PauseManager.Instance.WriteOfflineLog("Button pressed!");
-            }, buttonText: "A very interesting button");
-            c.InsertButton(16, () => {
+            });
+            c.InsertButton(16, "Plugins Directory", "Show Path", () => {
                 var pluginPath = BepInEx.Paths.PluginPath;
                 PauseManager.Instance.WriteOfflineLog($"Plugins directory: {pluginPath}");
-            }, "Plugins Directory", "Show Path");
+            });
             
             
             c.AppendHeader("Custom Section 2");
@@ -168,7 +168,7 @@ namespace ModMenu
                 PauseManager.Instance.WriteOfflineLog($"vector4Value is {value}");
             });
             
-            c.AppendTextBox("Ok now some weird stuff")
+            c.AppendTextBox("Some weirder stuff")
                 .Color = new Color(0.77254903f, 0.5254902f, 1f);
             
             float floatValue = 0;

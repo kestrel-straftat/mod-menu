@@ -6,6 +6,9 @@ using Object = System.Object;
 
 namespace ModMenu.Behaviours.OptionList.ValueControllers
 {
+    /// <summary>
+    /// An option list item that interacts with a boxed "value" via a getter and setter
+    /// </summary>
     public abstract class BoxedValueController : OptionListItem
     {
         private object m_defaultValue;
@@ -58,6 +61,9 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         }
     }
     
+    /// <summary>
+    /// Provides typed versions of a <see cref="BoxedValueController"/>'s getter and setter
+    /// </summary>
     public abstract class ValueController<T> : BoxedValueController
     {
         public T Getter() => (T)boxedGetter();
