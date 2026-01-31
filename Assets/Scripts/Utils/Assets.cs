@@ -9,6 +9,7 @@ namespace ModMenu.Utils
         private static AssetBundle m_bundle;
 
         public static Sprite DefaultModIcon { get; private set; }
+        public static Sprite ModMenuModIcon { get; private set; }
         public static GameObject CategoryHeader { get; private set; }
         
         public static GameObject IntegralSliderOption { get; private set; }
@@ -42,6 +43,7 @@ namespace ModMenu.Utils
             m_bundle = AssetBundle.LoadFromFile(bundlePath);
             
             DefaultModIcon = Load<Sprite>("NoIcon");
+            ModMenuModIcon = Load<Sprite>("ModIcon");
             CategoryHeader = Load<GameObject>("CategoryHeader");
             
             IntegralSliderOption = Load<GameObject>("IntegralSliderOption");

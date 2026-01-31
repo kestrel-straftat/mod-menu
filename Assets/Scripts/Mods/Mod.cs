@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BepInEx.Bootstrap;
-using ModMenu.Api;
+using BepInEx.Configuration;
 using ModMenu.Options;
 using ModMenu.Utils;
 using Newtonsoft.Json;
@@ -19,7 +19,7 @@ namespace ModMenu.Mods
         public readonly BepInEx.PluginInfo pluginInfo;
         public bool HasAnyConfigs => config.Count > 0;
         public bool HasAdvancedMetadata { get; private set; } = false;
-        public readonly Action<OptionListContext>? customContentBuilder;
+        public readonly Action<Api.OptionListContext>? customContentBuilder;
 
         public Mod(ModInfo info) {
             this.info = info;
@@ -32,18 +32,7 @@ namespace ModMenu.Mods
 
             LoadConfigEntries();   
         }
-
-        private void LoadConfigEntries() {
-            foreach (var entry in pluginInfo.Instance.Config) {
-                try {
-                    config.Add(Option.CreateForEntry(entry.Value));
-                }
-                catch (NotSupportedException e) {
-                    Plugin.Logger.LogWarning($"Error generating config entry \"{entry.Key}\" for \"{info.name}\": {e.Message}");
-                }
-            }
-        }
-
+        
         private void LoadMetadata() {
             info.icon = Assets.DefaultModIcon;
             info.description = "No description found.";
@@ -63,15 +52,44 @@ namespace ModMenu.Mods
             if (searchDir.EndsWith(".dll")) {
                 return;
             }
-            
-            var iconPath = Directory.EnumerateFiles(searchDir, "icon.png", SearchOption.AllDirectories).FirstOrDefault();
-            if (!string.IsNullOrEmpty(iconPath)) {
-                TryLoadIcon(iconPath);
-            }
 
+            if (Api.ModMenuCustomisation.Icons.TryGetValue(info.guid, out var icon)) {
+                info.icon = icon;
+                HasAdvancedMetadata = true;
+            } 
+            else {
+                // try load from thunderstore metadata
+                var iconPath = Directory.EnumerateFiles(searchDir, "icon.png", SearchOption.AllDirectories).FirstOrDefault();
+                if (!string.IsNullOrEmpty(iconPath)) {
+                    TryLoadIcon(iconPath);
+                }
+            }
+            
+            // we let TryLoadManifest run even if we find a description set through the API later
+            // as it also gets the plugin name from the thunderstores manifest
             var manifestPath = Directory.EnumerateFiles(searchDir, "manifest.json", SearchOption.AllDirectories).FirstOrDefault();
             if (!string.IsNullOrEmpty(manifestPath)) {
                 TryLoadManifest(manifestPath);
+            }
+            
+            if (Api.ModMenuCustomisation.Descriptions.TryGetValue(info.guid, out var description)) {
+                info.description = description;
+                HasAdvancedMetadata = true;
+            }
+        }
+
+        private void LoadConfigEntries() {
+            foreach (var kv in pluginInfo.Instance.Config) {
+                try {
+                    if (Api.ModMenuCustomisation.HiddenConfigEntries.Contains(kv.Value)) {
+                        continue;
+                    }
+                    
+                    config.Add(Option.CreateForEntry(kv.Value));
+                }
+                catch (NotSupportedException e) {
+                    Plugin.Logger.LogWarning($"Error generating config entry \"{kv.Key}\" for \"{info.name}\": {e.Message}");
+                }
             }
         }
 

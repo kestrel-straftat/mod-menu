@@ -72,3 +72,4 @@ MonoBehaviour:
   - assetBundleName: modmenu
     assets:
     - {fileID: 102900000, guid: c1c83e9e3f99a2f49b6ba2a96690f970, type: 3}
+    - {fileID: 102900000, guid: 80cd5dca13b095042ab3126c010b3e69, type: 3}

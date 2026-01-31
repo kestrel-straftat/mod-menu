@@ -11,7 +11,6 @@ All types usable in BepInEx 5.4.21 ConfigEntries are supported.
 This mod works much the same as BepInEx ConfigManager in that how options appear is defined by their acceptable values -
 an `AcceptableValueRange` creates a slider, an `AcceptableValueList` creates a dropdown, etc. Known issues include:
 
-- There is not currently an api to customise your mod's options (though this is planned!)
 - `[Flags]` enums are not currently supported
 
 ## Manual Installation Instructions

@@ -17,7 +17,7 @@ namespace ModMenu
     {
         public const string guid = "kestrel.straftat.modmenu";
         public const string name = "ModMenu";
-        public const string version = "1.0.3";
+        public const string version = "1.1.3";
     }
 
     [BepInPlugin(PluginInfo.guid, PluginInfo.name, PluginInfo.version)]
@@ -25,6 +25,8 @@ namespace ModMenu
     {
         public static Plugin Instance { get; private set; }
         internal static new ManualLogSource Logger;
+        
+        private static ConfigEntry<string> m_superSecretConfigEntry;
     
         public static readonly string loadBearingColonThree = ":3";
         private void Awake() {
@@ -32,12 +34,21 @@ namespace ModMenu
             gameObject.hideFlags = HideFlags.HideAndDontSave;
             Instance = this;
             Logger = base.Logger;
+            
+            CreateExampleConfigs();
+            Assets.Init();
 
             // register the content builder with the ModMenu API
             ModMenuCustomisation.RegisterContentBuilder(CustomContentBuilder);
             
-            Assets.Init();
-            CreateExampleConfigs();
+            // prevent modmenu from generating a ui item for a top secret config entry
+            ModMenuCustomisation.HideEntry(m_superSecretConfigEntry);
+            
+            // Explicitly set description and icon so that they're still shown
+            // even when ModMenu can't load them from thunderstore metadata
+            ModMenuCustomisation.SetPluginDescription("Configure your mods ingame!");
+            ModMenuCustomisation.SetPluginIcon(Assets.ModMenuModIcon);
+            
             new Harmony(PluginInfo.guid).PatchAll();
             Logger.LogInfo("Hiiiiiiiiiiii :3");
         }
@@ -80,6 +91,9 @@ namespace ModMenu
             Config.Bind("Examples.Other", "Enum", TestEnum.OptionA, "An enum");
             Config.Bind("Examples.Other", "Keyboard Shortcut", new KeyboardShortcut(KeyCode.F4, KeyCode.LeftAlt), "A keyboard shortcut");
             Config.Bind("Examples.Other", "KeyCode", KeyCode.A, "A keycode");
+
+            m_superSecretConfigEntry = Config.Bind("Examples.Secret", "Super Secret Entry", ":3", "shhh");
+            m_superSecretConfigEntry.SettingChanged += (_, _) => PauseManager.Instance.WriteOfflineLog(">:3");
         }
 
         private enum TestEnum2
@@ -93,7 +107,7 @@ namespace ModMenu
         private static void CustomContentBuilder(OptionListContext c) {
             c.InsertHeader(13, "Custom Section 1");
                 
-            c.InsertTextBox(14, "This section was generated with the API! With it, you can add custom ui elements anywhere in your mod's config page. " +
+            c.InsertTextBox(14, "This section was generated with the Mod Menu API! With it, you can add custom ui elements anywhere in your mod's config page. " +
                                 "Go to Assets/Scripts/Plugin.cs in the mod's source code to see example usage of the API.")
                 .GetComponent<LayoutElement>().preferredHeight = 128;
             c.InsertButton(15, "", "A very interesting button", () => {

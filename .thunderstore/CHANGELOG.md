@@ -1,3 +1,8 @@
+### v1.1.3
+
+- Added an API for mod developers to add items to their mod's settings page!
+- The mod now functions properly on platforms using vulkan (i.e. linux native)
+
 ### v1.0.3
 
 - Added a shake animation to options when setting them fails
