@@ -1,3 +1,7 @@
+### v1.1.4
+
+- Fixed the mod menu not initializing properly in a rare case
+
 ### v1.1.3
 
 - Added an API for mod developers to add items to and customise their mod's settings page!

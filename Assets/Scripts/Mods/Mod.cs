@@ -36,10 +36,6 @@ namespace ModMenu.Mods
         private void LoadMetadata() {
             info.icon = Assets.DefaultModIcon;
             info.description = "No description found.";
-            
-            if (pluginInfo is null) {
-                return;
-            }
 
             var searchDir = Path.GetFullPath(pluginInfo.Location);
             var parent = Directory.GetParent(searchDir);
@@ -79,7 +75,13 @@ namespace ModMenu.Mods
         }
 
         private void LoadConfigEntries() {
-            foreach (var kv in pluginInfo.Instance.Config) {
+            // this can happen! if a plugin's static ctor throws, its BaseUnityPlugin() ctor will never
+            // run, leaving a bunch of stuff in a half-initialised state. fun!
+            if (pluginInfo.Instance.Config is not {} configFile) { 
+                return;
+            }
+            
+            foreach (var kv in configFile) {
                 try {
                     if (Api.ModMenuCustomisation.HiddenConfigEntries.Contains(kv.Value)) {
                         continue;
