@@ -52,7 +52,7 @@ MonoBehaviour:
   Name: ModMenu
   Description: A mod that adds a mods menu that allows you to configure your mods
     ingame
-  Version: 1.1.4
+  Version: 1.1.5
   Dependencies: []
 --- !u!114 &114431642618062350
 MonoBehaviour:

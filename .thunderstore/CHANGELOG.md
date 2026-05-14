@@ -1,3 +1,7 @@
+### v1.1.5
+
+- Fixed slider options not initializing correctly if their bounds did not include 0
+
 ### v1.1.4
 
 - Fixed the mod menu not initializing properly in a rare case
