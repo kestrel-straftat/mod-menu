@@ -48,11 +48,16 @@ ModMenuCustomisation.RegisterContentBuilder((OptionListContext context) => {
     // second parameter is a getter, third parameter is a setter
     // these can do anything you want really - you aren't limited to
     // just mirroring a value.
-    context.AppendCheckbox("A checkbox", () => checkboxValue,
+    var checkbox = context.AppendCheckbox("A checkbox", () => checkboxValue,
         value => {
             checkboxValue = value;
         });
 
+    // you can set custom option info panel contents
+    checkbox.OnItemHovered += () => {
+        context.SetInfoPanelContents("Title text", "Subtitle text", "An informative description");
+    };
+    
     context.PrependHeader("Prepending stuff (appears at the start of the list)");
 
     context.InsertHeader(5, "Inserting stuff (appears at the specified index in the list)");
