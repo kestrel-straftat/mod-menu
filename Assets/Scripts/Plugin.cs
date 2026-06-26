@@ -57,6 +57,8 @@ namespace ModMenu
             new Harmony(PluginInfo.guid).PatchAll();
             Logger.LogInfo("Hiiiiiiiiiiii :3");
         }
+
+        private static void WriteToKillfeed(string text) => PauseManager.Instance.WriteOfflineLog(text);
         
         private enum TestEnum
         {
@@ -96,7 +98,7 @@ namespace ModMenu
             Config.Bind("Examples.Other", "KeyCode", KeyCode.A, "A keycode");
 
             m_superSecretConfigEntry = Config.Bind("Examples.Secret", "Super Secret Entry", ":3", "shhh");
-            m_superSecretConfigEntry.SettingChanged += (_, _) => PauseManager.Instance.WriteOfflineLog(">:3");
+            m_superSecretConfigEntry.SettingChanged += (_, _) => WriteToKillfeed(">:3");
         }
 
         private enum TestEnum2
@@ -109,16 +111,21 @@ namespace ModMenu
 
         private static void CustomContentBuilder(OptionListContext c) {
             c.InsertHeader(13, "Custom Section 1");
-                
-            c.InsertTextBox(14, "This section was generated with the Mod Menu API! With it, you can add custom ui elements anywhere in your mod's config page. " +
-                                "Go to Assets/Scripts/Plugin.cs in the mod's source code to see example usage of the API.")
-                .GetComponent<LayoutElement>().preferredHeight = 128;
+
+            var textBox = c.InsertTextBox(14, "This section was generated with the Mod Menu API! With it, you can add custom ui elements anywhere in your mod's config page. " +
+                                              "Go to Assets/Scripts/Plugin.cs in the mod's source code to see example usage of the API.");
+            
+            textBox.GetComponent<LayoutElement>().preferredHeight = 128;
+            textBox.OnItemHovered += () => {
+                c.SetInfoPanelContents("Custom Info Panel Contents", "Custom Section 1", "You can also set custom text that appears here! how fun");
+            };
+            
             c.InsertButton(15, "", "A very interesting button", () => {
-                PauseManager.Instance.WriteOfflineLog("Button pressed!");
+                WriteToKillfeed("Button pressed!");
             });
             c.InsertButton(16, "Plugins Directory", "Show Path", () => {
                 var pluginPath = BepInEx.Paths.PluginPath;
-                PauseManager.Instance.WriteOfflineLog($"Plugins directory: {pluginPath}");
+                WriteToKillfeed($"Plugins directory: {pluginPath}");
             });
             
             c.AppendHeader("Custom Section 2");
@@ -128,63 +135,72 @@ namespace ModMenu
                 .Color = new Color(0.77f, 0.53f, 1f);
 
             var dropdownValue = TestEnum2.AnotherTestEnum;
-            c.AppendDropdown("Custom Dropdown", () => dropdownValue, value => {
+            var dropdown = c.AppendDropdown("Custom Dropdown", () => dropdownValue, value => {
                 dropdownValue = value;
-                PauseManager.Instance.WriteOfflineLog($"dropdownValue is {dropdownValue}");
+                WriteToKillfeed($"dropdownValue is {dropdownValue}");
             });
+
+            dropdown.OnItemHovered += () => {
+                c.SetInfoPanelContents("Custom Dropdown", "Custom Section 2", "A custom dropdown with some custom info panel contents.");
+                c.ShowInfoPanelResetButton(() => {
+                    WriteToKillfeed("dropdownValue reset!");
+                    dropdownValue = TestEnum2.AnotherTestEnum;
+                    dropdown.UpdateAppearance();
+                });
+            };
             
             bool boolValue = false;
-            c.AppendCheckbox("Custom Checkbox", () => boolValue, value => {
+            var checkbox = c.AppendCheckbox("Custom Checkbox", () => boolValue, value => {
                 boolValue = value;
-                PauseManager.Instance.WriteOfflineLog($"checkboxValue is {value}");
+                WriteToKillfeed($"checkboxValue is {value}");
             });
             
             var colorValue = new Color(0.77f, 0.53f, 1f);
-            c.AppendColorInput("Custom Color Input", () => colorValue, value => {
+            var colorInput = c.AppendColorInput("Custom Color Input", () => colorValue, value => {
                 colorValue = value;
-                PauseManager.Instance.WriteOfflineLog($"colorValue is {value}");
+                WriteToKillfeed($"colorValue is {value}");
             });
-
+            
             string stringValue = "hiii";
-            c.AppendStringInput("Custom String Input", () => stringValue, value => {
+            var stringInput = c.AppendStringInput("Custom String Input", () => stringValue, value => {
                 stringValue = value;
-                PauseManager.Instance.WriteOfflineLog($"stringValue is {value}");
+                WriteToKillfeed($"stringValue is {value}");
             });
 
             var keyboardShortcutValue = KeyboardShortcut.Empty;
             c.AppendKeyboardShortcutInput("Custom Keyboard Shortcut Input", () => keyboardShortcutValue, value => {
                 keyboardShortcutValue = value;
-                PauseManager.Instance.WriteOfflineLog($"keyboardShortcutValue is {value}");
+                WriteToKillfeed($"keyboardShortcutValue is {value}");
             });
 
             var keyCodeValue = KeyCode.None;
             c.AppendKeyCodeInput("Custom KeyCode Input", () => keyCodeValue, value => {
                 keyCodeValue = value;
-                PauseManager.Instance.WriteOfflineLog($"keyCodeValue is {value}");
+                WriteToKillfeed($"keyCodeValue is {value}");
             });
 
             var quaternionValue = Quaternion.identity;
             c.AppendQuaternionInput("Custom Quaternion Input", () => quaternionValue, value => {
                 quaternionValue = value;
-                PauseManager.Instance.WriteOfflineLog($"quaternionValue is {value}");
+                WriteToKillfeed($"quaternionValue is {value}");
             });
             
             var vector2Value = Vector2.zero;
             c.AppendVector2Input("Custom Vector2 Input", () => vector2Value, value => {
                 vector2Value = value;
-                PauseManager.Instance.WriteOfflineLog($"vector2Value is {value}");
+                WriteToKillfeed($"vector2Value is {value}");
             });
             
             var vector3Value = Vector3.zero;
             c.AppendVector3Input("Custom Vector3 Input", () => vector3Value, value => {
                 vector3Value = value;
-                PauseManager.Instance.WriteOfflineLog($"vector3Value is {value}");
+                WriteToKillfeed($"vector3Value is {value}");
             });
             
             var vector4Value = Vector4.zero;
             c.AppendVector4Input("Custom Vector4 Input", () => vector4Value, value => {
                 vector4Value = value;
-                PauseManager.Instance.WriteOfflineLog($"vector4Value is {value}");
+                WriteToKillfeed($"vector4Value is {value}");
             });
             
             c.AppendTextBox("Some weirder stuff")
@@ -194,7 +210,7 @@ namespace ModMenu
             
             Action<float> setFloatValue = value => {
                 floatValue = value;
-                PauseManager.Instance.WriteOfflineLog($"floatValue is {floatValue}");
+                WriteToKillfeed($"floatValue is {floatValue}");
             };
             
             var inputField = c.AppendNumericInputField("Custom Float Input", () => floatValue, setFloatValue);
@@ -210,7 +226,7 @@ namespace ModMenu
 
             var floatSlider2 = c.AppendNumericSlider("Custom Float Slider 2", () => floatValue2, value => {
                 floatValue2 = value;
-                PauseManager.Instance.WriteOfflineLog($"floatValue2 is {floatValue2}");
+                WriteToKillfeed($"floatValue2 is {floatValue2}");
             }, sliderMin, sliderMax);
             
             var minSlider = c.AppendNumericSlider("Slider 2 Min (int slider example)", () => sliderMin, value => {

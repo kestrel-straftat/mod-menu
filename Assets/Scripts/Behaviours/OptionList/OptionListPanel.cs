@@ -20,7 +20,7 @@ namespace ModMenu.Behaviours.OptionList
         private GameObject m_noOptionsSadFace;
         
         private void Awake() {
-            var context = new OptionListContext(container.transform);
+            var context = new OptionListContext(this);
             // these only really need to be created once
             // meaningless microoptimisations with kestrel !!
             m_noOptionsText = context.AppendHeader("No options found").gameObject;
@@ -53,7 +53,7 @@ namespace ModMenu.Behaviours.OptionList
                     m_noOptionsSadFace.SetActive(true);
                 }
                 else {
-                    var context = new OptionListContext(container.transform);
+                    var context = new OptionListContext(this);
                     
                     string currentCategory = "";
                     foreach (var option in mod.config) {;
@@ -65,13 +65,13 @@ namespace ModMenu.Behaviours.OptionList
 
                         currentCategory = option.Section;
 
-                        var obj = context.AppendControllerForOption(option, infoPanel);
+                        var obj = context.AppendControllerForOption(option);
                         obj.name = $"{mod.info.name}/{option.Section}/{option.Name}";
                         cachedOptions.Add(obj);
                     }
                     
                     // refresh context and run user defined builder
-                    context = new OptionListContext(container.transform);
+                    context = new OptionListContext(this);
 
                     try {
                         mod.customContentBuilder?.Invoke(context);

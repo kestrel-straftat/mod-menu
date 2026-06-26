@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using BepInEx.Configuration;
 using ModMenu.Behaviours.OptionList;
 using ModMenu.Behaviours.OptionList.Dummies;
 using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Utils;
 using UnityEngine;
-using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace ModMenu.Api
@@ -28,6 +25,7 @@ namespace ModMenu.Api
         /// <param name="text">Text to display in the header</param>
         public TextDummy AppendHeader(string text) {
             var item = Object.Instantiate(Assets.CategoryHeader, Root).GetComponent<TextDummy>();
+            item.OnItemHovered += ClearInfoPanelContents;
             item.Text = text;
             return item;
         }
@@ -46,6 +44,7 @@ namespace ModMenu.Api
         /// <param name="text">Text to display in the text box</param>
         public TextDummy AppendTextBox(string text) {
             var item = Object.Instantiate(Assets.TextDummy, Root).GetComponent<TextDummy>();
+            item.OnItemHovered += ClearInfoPanelContents;
             item.Text = text;
             return item;
         }
@@ -65,6 +64,7 @@ namespace ModMenu.Api
         /// <param name="buttonText">Text to display on the button</param>
         public ButtonDummy AppendButton(string nameText, string buttonText, Action onClick) {
             var item = Object.Instantiate(Assets.ButtonDummy, Root).GetComponent<ButtonDummy>();
+            item.OnItemHovered += ClearInfoPanelContents;
             item.button.onClick.AddListener(onClick.Invoke);
             item.ButtonText = buttonText;
             item.NameText = nameText;
@@ -90,6 +90,7 @@ namespace ModMenu.Api
         private TController AppendValueController<TController, TValue>(GameObject prefab, string nameText, Func<TValue> getter, Action<TValue> setter) where TController : ValueController<TValue> {
             var controller = Object.Instantiate(prefab, Root).GetComponent<TController>();
             controller.SetupFromValues(getter, setter);
+            controller.OnItemHovered += ClearInfoPanelContents;
             controller.NameText = nameText;
             return controller;
         }
@@ -307,6 +308,7 @@ namespace ModMenu.Api
         public DropdownValueController AppendDropdown<T>(string nameText, Func<T> getter, Action<T> setter) where T : Enum {
             var controller = Object.Instantiate(Assets.EnumDropdownOption, Root).GetComponent<DropdownValueController>();
             controller.SetupFromValues(getter, setter);
+            controller.OnItemHovered += ClearInfoPanelContents;
             controller.NameText = nameText;
             return controller;
         }
@@ -337,6 +339,7 @@ namespace ModMenu.Api
             var prefab = typeof(T).IsFloating() ? Assets.FloatingInputFieldOption : Assets.IntegralInputFieldOption;
             var controller = Object.Instantiate(prefab, Root).GetComponent<NumericInputFieldValueController>();
             controller.SetupFromValues(getter, setter);
+            controller.OnItemHovered += ClearInfoPanelContents;
             controller.NameText = nameText;
             return controller;
         }
@@ -373,6 +376,7 @@ namespace ModMenu.Api
             var prefab = typeof(T).IsFloating() ? Assets.FloatingSliderOption : Assets.IntegralSliderOption;
             var controller = Object.Instantiate(prefab, Root).GetComponent<NumericSliderValueController>();
             controller.SetupFromValues(getter, setter);
+            controller.OnItemHovered += ClearInfoPanelContents;
             controller.slider.minValue = minValue;
             controller.slider.maxValue = maxValue;
             controller.NameText = nameText;

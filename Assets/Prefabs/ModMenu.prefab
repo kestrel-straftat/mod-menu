@@ -1176,8 +1176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9d6efd75e11fe41b6956dafb6e30b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 4368904283955946012}
   categoryText: {fileID: 2266815579120155172}
+  nameText: {fileID: 4368904283955946012}
   descriptionText: {fileID: 3067307124841386902}
   resetButton: {fileID: 3042534857210531827}
 --- !u!1 &4495994537003605636

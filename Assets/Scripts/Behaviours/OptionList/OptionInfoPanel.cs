@@ -1,3 +1,4 @@
+using ModMenu.Api;
 using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Options;
 using ModMenu.Utils;
@@ -25,6 +26,13 @@ namespace ModMenu.Behaviours.OptionList
             PauseManager.Instance.PlayMenuClip(PauseManager.Instance.releaseMenuClip);
         }
 
+        public void SetContents(string title, string subtitle, string description) {
+            ClearInfo();
+            nameText.text = title;
+            categoryText.text = subtitle;
+            descriptionText.text = description;
+        }
+
         public void ShowInfoFor(Option option) {
             ClearInfo();
             nameText.text = option.Name;
@@ -48,7 +56,6 @@ namespace ModMenu.Behaviours.OptionList
                 controller.UpdateAppearance();
             });
         }
-
         
         public void ClearInfo() {
             resetButton.onClick.RemoveAllListeners();

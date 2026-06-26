@@ -15,55 +15,39 @@ namespace ModMenu.Api
         /// <summary>The root transform of the option list</summary>
         public Transform Root { get; }
 
+        private OptionListPanel m_panel;
+        private OptionInfoPanel m_infoPanel;
         private HashSet<GameObject> m_originalChildren = new();
         
-        internal OptionListContext(Transform root) {
-            Root = root;
+        internal OptionListContext(OptionListPanel panel) {
+            m_panel = panel;
+            m_infoPanel = panel.infoPanel;
+            Root = panel.container.transform;
 
-            foreach (Transform child in root) {
+            foreach (Transform child in Root) {
                 m_originalChildren.Add(child.gameObject);
             }
         }
-
-        // helpers for option list generation
-
-        internal GameObject AppendControllerForOption(Option option, OptionInfoPanel infoPanel) {
-            var obj = Object.Instantiate(option.GetListItemPrefab(), Root);
-            var controller = obj.GetComponent<BoxedValueController>();
-            controller.SetupFromOption(option);
-            controller.NameText = option.Name;
-            controller.OnItemHovered += () => {
-                infoPanel.ShowInfoFor(option);
-                infoPanel.ShowResetButtonFor(controller);
-            };
-            return controller.gameObject;
+        
+        /// <summary>Sets the contents of the option info panel</summary>
+        /// <param name="title">The title to set</param>
+        /// <param name="subtitle">The subtitle to set</param>
+        /// <param name="description">The description to set</param>
+        public void SetInfoPanelContents(string title, string subtitle, string description) {
+            m_infoPanel.SetContents(title, subtitle, description);
         }
         
-        // returns an array containing the children of the root object
-        // that have been instantiated since the context was created
-        internal GameObject[] GetNewChildren() {
-            if (Root.childCount == m_originalChildren.Count) {
-                return Array.Empty<GameObject>();
-            }
-
-            List<GameObject> newChildren = new();
-
-            for (int i = 0; i < Root.childCount; ++i) {
-                var child = Root.GetChild(i).gameObject;
-                if (!m_originalChildren.Contains(child)) {
-                    newChildren.Add(child);
-                }
-            }
-            
-            return newChildren.ToArray();
+        /// <summary>Clears the contents of the option info panel</summary>
+        public void ClearInfoPanelContents() {
+            m_infoPanel.ClearInfo();
         }
 
-        private int FindActualIndex(int index) {
-            var activeChildren = Root.Cast<Transform>().Where(child => child.gameObject.activeSelf).ToArray();
-
-            index = Math.Clamp(index, 0, activeChildren.Length - 1);
-
-            return activeChildren[index].transform.GetSiblingIndex();
+        /// <summary>Shows the option reset button</summary>
+        /// <param name="resetAction">An action that will be invoked when the reset button is clicked</param>
+        public void ShowInfoPanelResetButton(Action resetAction) {
+            m_infoPanel.resetButton.gameObject.SetActive(true);
+            
+            m_infoPanel.resetButton.onClick.AddListener(() => resetAction?.Invoke());
         }
     }
 }
