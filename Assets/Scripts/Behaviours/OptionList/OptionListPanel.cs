@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using ModMenu.Api;
+using ModMenu.Behaviours.ModList;
 using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Mods;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionList
@@ -30,6 +32,40 @@ namespace ModMenu.Behaviours.OptionList
             m_noOptionsSadFace.GetComponent<TextMeshProUGUI>().fontSize = 24;
             m_noOptionsText.SetActive(false);
             m_noOptionsSadFace.SetActive(false);
+        }
+        
+        private static bool ShouldDisplayWithFilter(string filter, OptionListItem item) {
+            string filterLower = filter.ToLower();
+
+            if (item is BoxedValueController { sourceOption: { } option }) {
+                return option.Name.ToLower().Contains(filterLower)
+                    || option.Section.ToLower().Contains(filterLower);
+            }
+
+            // oh dear: we can't gain any fun information, just filter by name text
+            return item.NameText.ToLower().Contains(filterLower);
+        }
+
+        public void FilterOptionList(string filter) {
+            if (!m_optionCache.TryGetValue(m_currentEnabledGuid, out var optionObjects)) {
+                return;
+            }
+            
+            foreach (var obj in optionObjects) {
+                if (filter == string.Empty) {
+                    obj.SetActive(true);
+                    continue;
+                }
+
+                if (obj.TryGetComponent<OptionListItem>(out var item)) {
+                    obj.SetActive(ShouldDisplayWithFilter(filter, item));
+                }
+                else {
+                    // we can't really filter for random gameobjects sadly
+                    // (TODO custom option list item filter providers via API?)
+                    obj.SetActive(false);
+                }
+            }
         }
 
         public void ShowListFor(Mod mod) {

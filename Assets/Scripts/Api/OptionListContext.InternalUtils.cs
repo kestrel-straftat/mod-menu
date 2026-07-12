@@ -43,6 +43,11 @@ namespace ModMenu.Api
             return newChildren.ToArray();
         }
 
+        // returns the actual index of an item in the option list, from
+        // an index into the *currently active* items in the option list.
+        // this is required as all option list items from all mods live
+        // in the same place under the root object of the list
+        // TODO on second thought thats a pretty stupid way of storing option list items actually. should change
         private int FindActualIndex(int index) {
             var activeChildren = Root.Cast<Transform>().Where(child => child.gameObject.activeSelf).ToArray();
 

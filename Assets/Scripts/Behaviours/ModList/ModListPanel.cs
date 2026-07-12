@@ -1,6 +1,7 @@
 using System.Linq;
 using ModMenu.Behaviours.OptionList;
 using ModMenu.Mods;
+using TMPro;
 using UnityEngine;
 
 namespace ModMenu.Behaviours.ModList
@@ -25,6 +26,28 @@ namespace ModMenu.Behaviours.ModList
                 item.name = mod.info.name;
                 item.Mod = mod;
                 item.OnModSelected += SelectMod;
+            }
+        }
+        
+        private static bool ShouldDisplayWithFilter(string filter, ModInfo modInfo) {
+            string filterLower = filter.ToLower();
+            return modInfo.name.ToLower().Contains(filterLower)
+                || modInfo.guid.ToLower().Contains(filterLower);
+        }
+
+        public void FilterModList(string filter) {
+            foreach (Transform child in container.transform) {
+                if (filter == string.Empty) {
+                    child.gameObject.SetActive(true);
+                    continue;
+                }
+                var item = child.GetComponent<ModListItem>();
+                if (item is null) {
+                    continue;
+                }
+                var info = item.Mod.info;
+                
+                item.gameObject.SetActive(ShouldDisplayWithFilter(filter, info));
             }
         }
 

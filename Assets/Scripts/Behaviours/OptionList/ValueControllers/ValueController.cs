@@ -12,6 +12,9 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
     {
         public Func<object> getter;
         public Action<object> setter;
+
+        // only has a value for controllers initialised from options
+        internal Option sourceOption = null;
         
         private object m_defaultValue;
         private Tweener m_errorShake;
@@ -27,6 +30,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         protected virtual void Setup() { }
 
         internal virtual void SetupFromOption(Option option) {
+            sourceOption = option;
             m_defaultValue = option.BaseEntry.DefaultValue;
             ValueType = option.BaseEntry.SettingType;
             
