@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using BepInEx.Configuration;
 using ModMenu.Options;
 using ModMenu.Utils;
 using TMPro;
@@ -15,11 +13,6 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
 
         private string[] m_dropdownNames;
         private object[] m_dropdownValues;
-
-        protected override void Setup() {
-            dropdown.ClearOptions();
-            dropdown.AddOptions(m_dropdownNames.ToList());
-        }
 
         public void OnDropdownValueChanged(int index) {
             setter.Invoke(m_dropdownValues[index]);
@@ -52,6 +45,11 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
             SetValuesFromEnum(typeof(T));
             
             base.SetupFromValues(getter, setter);
+        }
+        
+        protected override void Setup() {
+            dropdown.ClearOptions();
+            dropdown.AddOptions(m_dropdownNames.ToList());
         }
 
         private void SetValuesFromEnum(Type enumType) {

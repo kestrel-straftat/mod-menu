@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using BepInEx.Configuration;
-using ModMenu.Options;
 using ModMenu.Utils;
 using UnityEngine;
 
@@ -11,11 +10,10 @@ namespace ModMenu.Api
     public static class ModMenuCustomisation
     {
         // keyed by plugin guid
-        internal static Dictionary<string, Action<OptionListContext>> Builders { get; private set; } = new();
-        internal static Dictionary<string, Sprite> Icons { get; private set; } = new();
-        internal static Dictionary<string, string> Descriptions { get; private set; } = new();
-        
-        internal static HashSet<ConfigEntryBase> HiddenConfigEntries { get; private set; } = new();
+        internal static Dictionary<string, Action<OptionListContext>> Builders { get; } = new();
+        internal static Dictionary<string, Sprite> Icons { get; } = new();
+        internal static Dictionary<string, string> Descriptions { get; } = new();
+        internal static HashSet<ConfigEntryBase> HiddenConfigEntries { get; } = new();
 
         /// <summary>
         /// Registers a content builder that will be run while ModMenu is generating the option list

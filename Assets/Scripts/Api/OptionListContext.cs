@@ -1,23 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using BepInEx.Configuration;
 using ModMenu.Behaviours.OptionList;
-using ModMenu.Behaviours.OptionList.ValueControllers;
-using ModMenu.Options;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace ModMenu.Api
 {
     public partial class OptionListContext
     {
-        /// <summary>The root transform of the option list</summary>
-        public Transform Root { get; }
-
         private OptionListPanel m_panel;
         private OptionInfoPanel m_infoPanel;
         private HashSet<GameObject> m_originalChildren = new();
+        
+        /// <summary>The root transform of the option list</summary>
+        public Transform Root { get; }
         
         internal OptionListContext(OptionListPanel panel) {
             m_panel = panel;

@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using ModMenu.Api;
-using ModMenu.Behaviours.ModList;
 using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Mods;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 namespace ModMenu.Behaviours.OptionList

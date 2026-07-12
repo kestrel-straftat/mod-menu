@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BepInEx.Bootstrap;
-using BepInEx.Configuration;
 using ModMenu.Options;
 using ModMenu.Utils;
 using Newtonsoft.Json;
@@ -17,9 +16,10 @@ namespace ModMenu.Mods
         public readonly List<Option> config = new();
         public ModInfo info;
         public readonly BepInEx.PluginInfo pluginInfo;
+        public readonly Action<Api.OptionListContext>? customContentBuilder;
+        
         public bool HasAnyConfigs => config.Count > 0;
         public bool HasAdvancedMetadata { get; private set; } = false;
-        public readonly Action<Api.OptionListContext>? customContentBuilder;
 
         public Mod(ModInfo info) {
             this.info = info;

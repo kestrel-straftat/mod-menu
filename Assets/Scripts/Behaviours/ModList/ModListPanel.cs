@@ -1,7 +1,6 @@
 using System.Linq;
 using ModMenu.Behaviours.OptionList;
 using ModMenu.Mods;
-using TMPro;
 using UnityEngine;
 
 namespace ModMenu.Behaviours.ModList

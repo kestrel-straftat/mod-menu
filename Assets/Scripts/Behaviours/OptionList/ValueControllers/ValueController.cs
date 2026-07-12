@@ -22,12 +22,17 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public Type ValueType { get; private set; }
         
         private void Start() {
-            m_errorShake = DOTween.Shake(() => transform.localPosition, p => transform.localPosition = p, 0.2f, 15f * Vector3.right, 20).SetAutoKill(false).Pause();
+            m_errorShake = DOTween.Shake(
+                () => transform.localPosition,
+                p => transform.localPosition = p,
+                0.2f, 
+                15f * Vector3.right, 
+                20
+            ).SetAutoKill(false).Pause();
         }
-        
-        public virtual void ResetValue() => setter(m_defaultValue);
+
         public abstract void UpdateAppearance();
-        protected virtual void Setup() { }
+        public virtual void ResetValue() => setter(m_defaultValue);
 
         internal virtual void SetupFromOption(Option option) {
             sourceOption = option;
@@ -63,6 +68,8 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
             Setup();
             UpdateAppearance();
         }
+
+        protected virtual void Setup() { }
     }
     
     /// <summary>

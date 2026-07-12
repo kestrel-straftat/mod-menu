@@ -1,4 +1,3 @@
-using ModMenu.Api;
 using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Options;
 using ModMenu.Utils;

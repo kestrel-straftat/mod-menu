@@ -1,8 +1,6 @@
 using BepInEx.Configuration;
-using ModMenu.Behaviours.OptionList.ValueControllers;
 using ModMenu.Utils;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace ModMenu.Options
 {

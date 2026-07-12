@@ -9,11 +9,7 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         public TMP_InputField inputField;
 
         private bool m_isIntegralType;
-
-        protected override void Setup() {
-            m_isIntegralType = ValueType.IsIntegral();
-        }
-
+        
         public void OnInputFieldEndEdit(string value) {
             try {
                 if (Convert.ChangeType(value, ValueType) is { } converted) {
@@ -29,6 +25,10 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
 
         public override void UpdateAppearance() {
             inputField.SetTextWithoutNotify(m_isIntegralType? getter.Invoke().ToString() : $"{getter.Invoke():F}");
+        }
+        
+        protected override void Setup() {
+            m_isIntegralType = ValueType.IsIntegral();
         }
     }
 }

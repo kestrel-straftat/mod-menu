@@ -13,14 +13,6 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         protected bool rebinding;
         protected KeyCode[] keysToCheck;
 
-        protected override void Setup() {
-            keysToCheck = UnityInput.Current.SupportedKeyCodes.Except(new[] {
-                KeyCode.Mouse0,
-                KeyCode.None,
-                KeyCode.Escape
-            }).ToArray();
-        }
-
         public void OnRebindButtonPressed() {
             if (!rebinding) {
                 StartRebinding();
@@ -43,6 +35,14 @@ namespace ModMenu.Behaviours.OptionList.ValueControllers
         
         protected abstract void UpdateRebinding();
 
+        protected override void Setup() {
+            keysToCheck = UnityInput.Current.SupportedKeyCodes.Except(new[] {
+                KeyCode.Mouse0,
+                KeyCode.None,
+                KeyCode.Escape
+            }).ToArray();
+        }
+        
         protected void StartRebinding() {
             rebinding = true;
             PauseManagerPatch.currentlyRebindingKeybindContollers.Add(this);
