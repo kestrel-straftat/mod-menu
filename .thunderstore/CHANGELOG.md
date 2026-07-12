@@ -1,3 +1,18 @@
+### v1.2.0
+
+#### Main
+- Added a search bar to the mod list and options list
+- Adjusted the widths of the mod list, option list and info panels slightly
+
+#### API
+- Added support for setting info panel contents via the API
+  - For an example of this, see [`Assets/Scripts/Plugin.cs`](https://github.com/kestrel-straftat/mod-menu/blob/master/Assets/Scripts/Plugin.cs) as per usual
+  - TLDR: `OptionListContext` now exposes `SetInfoPanelContents`, `ClearInfoPanelContents` and `ShowInfoPanelResetButton`
+  - You can show content in the info panel on hover by adding a listener to the `OnItemHovered` event on your `OptionListItem`
+
+#### Other
+- Realized ive been doing version numbers wrong this whole time. oops
+
 ### v1.1.5
 
 - Fixed slider options not initializing correctly if their bounds did not include 0

@@ -2,7 +2,7 @@
 
 This mod adds a mods tab to the settings menu, which allows you to configure your mods ingame.
 
-<img src="https://files.catbox.moe/j5nqm8.png" width="720" alt="The mod menu interface">
+<img src="https://files.catbox.moe/v5r3mv.png" width="720" alt="The mod menu interface">
 
 ## For mod developers - notes and API reference 
 
