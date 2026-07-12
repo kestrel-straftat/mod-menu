@@ -1541,6 +1541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1537419429095858567}
   infoPanel: {fileID: 7862242233161674418}
+  searchBar: {fileID: 6137492522408929775}
 --- !u!1 &4059041374742642311
 GameObject:
   m_ObjectHideFlags: 0

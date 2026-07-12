@@ -12,6 +12,7 @@ namespace ModMenu.Behaviours.OptionList
     {
         public GameObject container;
         public OptionInfoPanel infoPanel;
+        public TMP_InputField searchBar;
 
 		// guid to array of option objects belonging to that mod
         private Dictionary<string, GameObject[]> m_optionCache = new();
@@ -69,6 +70,7 @@ namespace ModMenu.Behaviours.OptionList
         public void ShowListFor(Mod mod) {
             ClearList();
             m_currentEnabledGuid = mod.info.guid;
+            searchBar.SetTextWithoutNotify(string.Empty);
 
             if (m_optionCache.TryGetValue(m_currentEnabledGuid, out var optionObjects)) {
                 foreach (var obj in optionObjects) {
