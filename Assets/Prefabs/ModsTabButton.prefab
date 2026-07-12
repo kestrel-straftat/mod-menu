@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3791453956968740471}
   - component: {fileID: 2990120407176956235}
-  - component: {fileID: 6535133812849167867}
+  - component: {fileID: 393190741853377528}
   - component: {fileID: 6016726994139945447}
+  - component: {fileID: 6535133812849167867}
   m_Layer: 5
   m_Name: ModsTabButton
   m_TagString: Untagged
@@ -48,7 +49,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184813516272395315}
   m_CullTransparentMesh: 1
---- !u!114 &6535133812849167867
+--- !u!114 &393190741853377528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,26 +58,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 184813516272395315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1388171122, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: {x: 1.1, y: 1.1, z: 1.1}
-  tweenDuration: 0.4
-  easeType: 24
-  parentScale: 0
-  takeInitScale: 0
-  closeWindow: 0
-  biggerWhenSelected: 1
-  biggerWithGamepadOnly: 0
-  selectedScale: {x: 1, y: 1.1, z: 1}
-  tweenDuration2: 0.4
-  easeType2: 30
-  scaleTextOnly: 0
-  startGameButton: 0
-  dlcLockedButton: 0
-  addFriendButton: 0
-  randomizedLockedButton: 0
-  customText: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &6016726994139945447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6535133812849167867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184813516272395315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1388171122, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: {x: 1.1, y: 1.1, z: 1.1}
+  tweenDuration: 0.4
+  easeType: 24
+  parentScale: 0
+  takeInitScale: 0
+  closeWindow: 0
+  biggerWhenSelected: 1
+  biggerWithGamepadOnly: 0
+  selectedScale: {x: 1, y: 1.1, z: 1}
+  tweenDuration2: 0.4
+  easeType2: 30
+  scaleTextOnly: 0
+  startGameButton: 0
+  dlcLockedButton: 0
+  addFriendButton: 0
+  randomizedLockedButton: 0
+  customText: 
 --- !u!1 &7889117016394835297
 GameObject:
   m_ObjectHideFlags: 0
