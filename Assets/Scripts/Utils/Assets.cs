@@ -39,7 +39,8 @@ namespace ModMenu.Utils
 
         public static void Init() {
             Plugin.Logger.LogInfo("Loading assets...");
-            var bundlePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "modmenu");
+            var bundleName = Application.platform == RuntimePlatform.OSXPlayer ? "modmenu-macos" : "modmenu";
+            var bundlePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, bundleName);
             m_bundle = AssetBundle.LoadFromFile(bundlePath);
             
             DefaultModIcon = Load<Sprite>("NoIcon");
